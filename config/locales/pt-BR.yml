@@ -1,0 +1,43 @@
+# Sample localization file for Portugues. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pt-BR:
+  delete: 'Delete'
+  view: 'Visualisar'
+  edit: 'Editar'
+  update: 'Atualizar'
+  cancel: 'Cancelar'
+  back: 'Voltar'
+  create: 'Criar'
+  
+  # patients
+  
+  name: 'Nome'
+  birth: 'Nascimento'
+  sex: 'Sexo'
+  identity_card: 'Carteira de Identidade'
+  cpf: 'CPF'
+  address: 'Endereço'
+  zip_code: 'CEP'
+  district: 'Bairro'
+  email: 'E-mail'
+  city: 'Cidade'
+  state: 'Estado'
+  telephone: 'Telefone'
+  mobile: 'Celular'
+  number: 'Número'
+  complement: 'Complemento'
+  
+  patients: 'Pacientes'
+  new_patient: 'Novo Paciente'
+  new_patient_register: 'Novo Cadastro de Paciente'
+  patient_register: 'Cadastrar Paciente'
+  edit_patient_register: 'Editar Cadastro de Pacientes'
+  show_patient_register: 'Visualisar Cadastro de Pacientes'
+  
+  # users
+  
+  users: 'Usuário'
+  enabled: 'Ativo'
+  login: 'Login'
+  can_login: 'Pode efetuar o login?'

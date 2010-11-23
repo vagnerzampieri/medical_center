@@ -1,0 +1,36 @@
+			<%= render :partial => 'admin/shared/subnav' %>
+			
+				<article class="article">
+         	<h2><%= I18n.t :user_register %></h2>
+					<h4>>> <%= link_to I18n.t(:new_user), new_admin_user_path %></h4>
+					
+          <div class="line"></div>    
+
+          <div class="articleBody clear">  
+		        <table>
+		        	<thead>
+		        		<th><%= I18n.t :name %></th>
+		        		<th><%= I18n.t :login %></th>
+		        		<th><%= I18n.t :email %></th>
+		        		<th><%= I18n.t :enabled %></th>
+		        		<th><%= I18n.t :can_login %></th>
+		        		<th></th>
+		        		<th></th>
+		        		<th></th>
+		        	</thead>
+		        	<% @users.each do |user| %>
+		        	<tr>
+		        		<td><%= user.name %></td>
+		        		<td><%= user.login %></td>
+		        		<td><%= user.email%></td>
+		        		<td><%= user.enabled%></td>
+		        		<td><%= user.can_login%></td>
+		        		<td><%= link_to I18n.t(:view), admin_user_path(user) %></td>
+		        		<td><%= link_to I18n.t(:edit), edit_admin_user_path(user) %></td>
+		        		<td><%= button_to I18n.t(:delete), {:action => "destroy", :id => user.id}, :method => :delete %></td>
+		        	</tr>
+		        	<% end %>
+		        </table>
+          </div>
+        </article>
+        

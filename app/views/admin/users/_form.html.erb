@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <td class="last"><%= f.label I18n.t :name %></td>
+    <td class="middle"><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td class="last"><%= f.label I18n.t :email %></td>
+    <td class="middle"><%= f.text_field :email %></td>
+  </tr>
+  <tr>
+    <td class="last"><%= f.label I18n.t :login %></td>
+    <td class="middle"><%= f.text_field :login %></td>
+  </tr>
+  <tr>
+    <td class="last"><%= f.label :password, f.object.new_record? ? nil : "Change password" %></td>
+    <td class="middle"><%= f.password_field :password %></td>
+  </tr>
+  <tr>
+    <td class="last"><%= f.label I18n.t :password_confirmation %></td>
+    <td class="middle"><%= f.password_field :password_confirmation %></td>
+  </tr>
+  <tr>
+    <td class="last"><%= f.label I18n.t :can_login %></td>
+    <td class="middle"><%= f.check_box :can_login %></td>
+  </tr>
+  <tr>
+    <td class="last"><%= f.label I18n.t :enabled %></td>
+    <td class="middle"><%= f.check_box :enabled %></td>
+  </tr>
+</table>

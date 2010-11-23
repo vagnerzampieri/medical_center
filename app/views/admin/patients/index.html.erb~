@@ -1,0 +1,35 @@
+			<%= render :partial => 'admin/shared/subnav' %>
+			
+				<article class="article">
+         	<h2><%= I18n.t :patient_register %></h2>
+					<h4>>> <%= link_to (I18n.t(:new_patient), new_admin_patient_path) %></h4>
+					
+          <div class="line"></div>    
+
+          <div class="articleBody clear">  
+		        <table>
+		        	<thead>
+		        		<th><%= I18n.t :name %></th>
+		        		<th><%= I18n.t :email %></th>
+		        		<th><%= I18n.t :telephone %></th>
+		        		<th><%= I18n.t :city %></th>
+		        		<th><%= I18n.t :state %></th>
+		        		<th></th>
+		        		<th></th>
+		        		<th></th>
+		        	</thead>
+		        	<% @patients.each do |patient| %>
+		        	<tr>
+		        		<td><%= patient.name %></td>
+		        		<td><%= patient.email %></td>
+		        		<td><%= patient.ddd %> - <%= patient.telephone %></td>
+		        		<td><%= patient.city %></td>
+		        		<td><%= patient.state.name %></td>
+		        		<td><%= link_to (I18n.t(:view), admin_patient_path(patient)) %></td>
+		        		<td><%= link_to (I18n.t(:edit), edit_admin_patient_path(patient)) %></td>
+		        		<td><%= button_to I18n.t(:delete), {:action => "destroy", :id => patient.id}, :method => :delete %></td>
+		        	</tr>
+		        	<% end %>
+		        </table>
+          </div>
+        </article>

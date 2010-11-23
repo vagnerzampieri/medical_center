@@ -1,0 +1,45 @@
+<!DOCTYPE html> <!-- The new doctype -->
+<html>
+	<head>
+  	<meta charset="utf-8" />
+  	<title>Medical Center</title>
+  	<link rel="stylesheet" type="text/css" href="/stylesheets/admin/styles.css" /> 
+  	<link rel="shortcut icon" href="/images/icons/batimento.ico" type="/images/icons/x-icon"/>         
+	</head>
+	<body>    	
+  	<section class="page">
+  		<info>
+  			<h5>zampieri - <a href="#">sair</a></h5>
+  		</info>
+  	
+  		<div class="line"></div>
+  	  
+	    <header>            
+        <hgroup>
+        	<h1>Medical Center</h1>
+        </hgroup>
+        
+        <%= render :partial => 'admin/shared/nav_header' %>
+        
+      </header>
+            
+      <section class="articles">
+      
+	      <div class="line"></div>               
+	      
+	      <p id="notice"><%= notice %></p>
+
+       	<%= yield %>
+      </section>
+
+	        <footer>
+          
+          	<div class="line"></div>
+           
+           	<p>Medical Center &copy 2010.2 - Versão 3.0</p>
+           
+           	<a href="#" class="up">Go UP</a>
+        	</footer>            
+		</section>     
+	</body>
+</html>

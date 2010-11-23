@@ -1,0 +1,41 @@
+class CreateStates < ActiveRecord::Migration
+  def self.up
+    create_table :states do |t|
+    	t.string :name
+    	t.string :acronym
+
+      t.timestamps
+    end
+    State.create(:id => 1, :name => 'Acre', :acronym => '')
+    State.create(:id => 2, :name => 'Alagoas', :acronym => '')
+    State.create(:id => 3, :name => 'Amapá', :acronym => '')
+    State.create(:id => 4, :name => 'Amazonas', :acronym => '')
+    State.create(:id => 5, :name => 'Bahia', :acronym => '')
+    State.create(:id => 6, :name => 'Ceará', :acronym => '')
+    State.create(:id => 7, :name => 'Distrito Federal', :acronym => '')
+    State.create(:id => 8, :name => 'Espírito Santo', :acronym => '')
+    State.create(:id => 9, :name => 'Goiás', :acronym => '')
+    State.create(:id => 10, :name => 'Maranhão', :acronym => '')
+    State.create(:id => 11, :name => 'Mato Grosso', :acronym => '')
+    State.create(:id => 12, :name => 'Mato Grosso do Sul', :acronym => '')
+    State.create(:id => 13, :name => 'Minas Gerais', :acronym => '')
+    State.create(:id => 14, :name => 'Pará', :acronym => '')
+    State.create(:id => 15, :name => 'Paraíba', :acronym => '')
+    State.create(:id => 16, :name => 'Paraná', :acronym => '')
+    State.create(:id => 17, :name => 'Pernambuco', :acronym => '')
+    State.create(:id => 18, :name => 'Piauí', :acronym => '')
+    State.create(:id => 19, :name => 'Rio de Janeiro', :acronym => '')
+    State.create(:id => 20, :name => 'Rio Grande do Norte', :acronym => '')
+    State.create(:id => 21, :name => 'Rio Grande do Sul', :acronym => '')
+    State.create(:id => 22, :name => 'Rondônia', :acronym => '')
+    State.create(:id => 23, :name => 'Rorâima', :acronym => '')
+    State.create(:id => 24, :name => 'São Paulo', :acronym => '')
+    State.create(:id => 25, :name => 'Santa Catarina', :acronym => '')
+    State.create(:id => 26, :name => 'Sergipe', :acronym => '')
+    State.create(:id => 27, :name => 'Tocantins', :acronym => '')
+  end
+
+  def self.down
+    drop_table :states
+  end
+end

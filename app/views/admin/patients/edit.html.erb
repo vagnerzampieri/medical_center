@@ -1,0 +1,17 @@
+			<%= render :partial => 'admin/shared/subnav' %>
+			
+				<article class="article">
+        	<h2><%= I18n.t :edit_patient_register %></h2>
+
+          <div class="line"></div>    
+
+          <div class="articleBody clear">
+          	<%= form_for(@patient, :as => :patient, :url => admin_patient_path, :html => { :method => :put, :class => "form", :id => "form" }) do |f| %>
+      				<%= render :partial => 'form', :locals => { :f => f }  %>
+      				<%= submit_tag I18n.t(:update) %>
+      				<%= link_to I18n.t(:cancel), admin_patients_path %>
+    				<% end %>
+          </div>
+        </article>       	
+        	
+        	

@@ -1,0 +1,316 @@
+*{
+	/* Universal reset: */
+	margin:0;
+	padding:0;
+}
+
+info,header,footer,
+article,section,
+hgroup,nav,
+figure, aside, vertical, login{
+	/* Giving a display value to the HTML5 rendered elements: */
+	display:block;
+}
+
+body{
+	/* Setting the default text color, size, page background and a font stack: */
+	font-size:0.825em;
+	color:#fcfcfc;
+	background-color:#355664;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Hyperlink Styles: */
+
+a, a:visited {
+	color:#fff;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:none;
+	color: #565656;
+}
+
+a img{
+	border:none;
+}
+
+/* Headings: */
+
+h1,h2,h3,h4{
+	font-family:"Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+	text-shadow:0 1px 1px black;
+}
+
+h1{
+	/* The logo text */
+	font-size:3.5em;
+	padding:0 0 0;
+	text-transform:lowercase;
+}
+
+h2{
+	font-size:2.2em;
+	font-weight:normal;
+	letter-spacing:0.01em;
+	text-transform:lowercase;
+}
+
+h3{
+	/* The slogan text */
+	font-family:forte,"Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+	font-size:2em;
+	font-weight:normal;
+	margin:0 0 1em;
+}
+
+h4{
+	font-size: 1.6em;
+	font-weight:normal;
+	text-transform:lowercase;
+}
+
+h5{
+	font-size: 1em;
+	font-weight:normal;
+	text-transform:lowercase;
+}
+
+p{
+	line-height:1.5em;
+	padding-bottom:1em;
+}
+
+info{
+	text-align: right;
+}
+
+info h5 a, info h5 a:visited{
+	background: white;
+	color: red;
+	padding: 1px;
+}
+
+info h5 a:hover{
+	background: red;
+	color: white;
+	padding: 1px;
+}
+
+info h5 a{
+	/* Applying CSS3 rounded corners: */
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
+.line{
+	/* The dividing line: */
+	height:1px;
+	background-color:#24404c;
+	border-bottom:1px solid #416371;
+	margin:1em 0;
+	overflow:hidden;
+}
+
+article .line, aside .line{
+	/* The dividing line inside of the article is darker: */
+	background-color:#15242a;
+	border-bottom-color:#204656;
+	margin:1.3em 0;
+}
+
+footer .line{
+	margin:2em 0;
+}
+
+nav{
+	background:url(/images/admin/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
+	padding:0 5px;
+	border:1px solid #FCFCFC;
+
+	-moz-box-shadow:0 1px 1px #333333;
+	-webkit-box-shadow:0 1px 1px #333333;
+	box-shadow:0 1px 1px #333333;
+}
+
+/* The clearfix hack to clear the floats: */
+
+.clear:after{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* The navigation styling: */
+
+nav ul li{
+	display:inline;
+}
+
+nav ul li a,
+nav ul li a:visited{
+	color:#565656;
+	display:block;
+	float:left;
+	font-size:1.25em;
+	font-weight:bold;
+	margin:5px 2px;
+	padding:7px 10px 4px;
+	text-shadow:0 1px 1px white;
+	text-transform:lowercase;
+}
+
+nav ul li a:hover{
+	text-decoration:none;
+	background-color:#ccc;
+}
+
+nav, article, nav ul li a,figure, aside {
+	/* Applying CSS3 rounded corners: */
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+
+/* Article styles: */
+
+.page{
+	width:1000px;
+	margin:0 auto;
+	position:relative;
+}
+
+article{
+	background-color:#213E4A;
+	margin:1em 0;
+	padding:20px;	
+}
+
+.article1 {
+	width: 650px;
+	float: left;
+}
+
+table{
+	margin:5px;
+	border-collapse: collapse;
+	table-layout:auto;
+	width:98%;
+	background:none;
+}
+
+table thead th{
+	/* Applying CSS3 rounded corners: */
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+}
+
+td{
+	padding: 2px;
+	vertical-align: top;
+	color:#fff;
+	border: 1px #4D7788 solid;
+}
+
+th {
+	padding: 2px;
+	vertical-align: top;
+	color:#142830;
+	background: #4D7788;
+}
+
+figure{
+	border:3px solid #142830;
+	float:right;
+	height:300px;
+	margin-left:15px;
+	overflow:hidden;
+	width:500px;
+}
+
+figure:hover{
+	-moz-box-shadow:0 0 2px #4D7788;
+	-webkit-box-shadow:0 0 2px #4D7788;
+	box-shadow:0 0 2px #4D7788;
+}
+
+figure img{
+	margin-left:-60px;
+}
+
+/* Sidebar styling*/
+
+aside {
+	width: 280px;
+	margin:1em 0;
+	float: right;
+	background-color:#213E4A;
+}
+
+.sidebar {
+	padding-top: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	text-align: center;
+	text-transform:lowercase;
+}
+
+vertical {
+	padding-left: 1em;
+	padding-bottom: 1em;
+	text-align: left;
+	font-size: 1.2em;
+}
+
+vertical ul {
+	list-style:none;
+}
+
+/* Footer styling: */
+
+footer{
+	clear: both;
+	margin-bottom:30px;
+	text-align:center;
+	font-size:0.825em;
+}
+
+
+footer p{
+	margin-bottom:-2.5em;
+	position:relative;
+}
+
+footer a,footer a:visited{
+	color:#cccccc;
+	background-color:#213e4a;
+	display:block;
+	padding:2px 4px;
+	z-index:100;
+	position:relative;
+}
+
+footer a:hover{
+	text-decoration:none;
+	background-color:#142830;
+}
+
+footer a.by{
+	float:left;
+
+}
+
+footer a.up{
+	float:right;
+}
+
+.login {
+	text-align: right;
+}
+

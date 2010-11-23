@@ -1,0 +1,49 @@
+			<%= render :partial => 'admin/shared/subnav' %>
+				<article class="article">
+         	<h2>Cadastro de Usuários</h2>
+					<h4>>> <a href="#">Novo Usuário</a></h4>
+					
+          <div class="line"></div>    
+
+          <div class="articleBody clear">  
+		        <table>
+		        	<thead>
+		        		<th>data</th>
+		        		<th>nome</th>
+		        		<th>email</th>
+		        		<th>tipo de usuário</th>
+		        		<th></th>
+		        		<th></th>
+		        		<th></th>
+		        	</thead>
+		        	<tr>
+		        		<td>23-05-2010 21:39</td>
+		        		<td>Vagner Armond Zampieri</td>
+		        		<td>vgzampieri@gmail.com</td>
+		        		<td>Admin</td>
+		        		<td>visualzar</td>
+		        		<td>editar</td>
+		        		<td>excluir</td>
+		        	</tr>
+		        	<tr>
+		        		<td>23-05-2010 21:39</td>
+		        		<td>Vagner Armond Zampieri</td>
+		        		<td>vgzampieri@gmail.com</td>
+		        		<td>Admin</td>
+		        		<td>visualzar</td>
+		        		<td>editar</td>
+		        		<td>excluir</td>
+		        	</tr>
+		        	<tr>
+		        		<td>23-05-2010 21:39</td>
+		        		<td>Vagner Armond Zampieri</td>
+		        		<td>vgzampieri@gmail.com</td>
+		        		<td>Admin</td>
+		        		<td>visualzar</td>
+		        		<td>editar</td>
+		        		<td>excluir</td>
+		        	</tr>
+		        </table>
+          </div>
+        </article>
+        

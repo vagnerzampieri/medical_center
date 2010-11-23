@@ -1,0 +1,62 @@
+			<%= render :partial => 'admin/shared/subnav' %>
+			
+				<article class="article">
+        	<h2><%= I18n.t :show_patient_register %></h2>
+
+          <div class="line"></div>    
+
+          <div class="articleBody clear">          
+          	<table>
+							<tr>
+								<td><%= I18n.t :name %>:</td>
+								<td><%= @patient.name %></td> 
+							</tr>
+							<tr>
+								<td><%= I18n.t :birth %>:</td>
+								<td><%= @patient.birth %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :sex %>:</td>
+								<td><%= @patient.sex %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :cpf %>:</td>
+								<td><%= @patient.cpf %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :address %>:</td>
+								<td><%= @patient.address %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :zip_code %>:</td>
+								<td><%= @patient.zip_code %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :district %>:</td>
+								<td><%= @patient.district %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :city %>:</td>
+								<td><%= @patient.city %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :state %>:</td>
+								<td><%= @patient.state.name %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :telephone %>:</td>
+								<td><%= @patient.ddd %> <%= @patient.telephone %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :mobile %>:</td>
+								<td><%= @patient.mobile %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :email %>:</td>
+								<td><%= @patient.email %></td>
+							</tr>
+						</table>	
+						<%= link_to I18n.t(:back), admin_patients_path %>
+          </div>
+        </article>       	
+
