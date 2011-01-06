@@ -33,3 +33,29 @@ en:
   patient_register: 'Patient Register'
   edit_patient_register: 'Edit Patient Register'
   show_patient_register: 'Show Patient Register'
+  
+  # users
+  
+  users: 'Users'
+  enabled: 'Enable'
+  login: 'Login'
+  can_login: 'Can login?'
+  user_register: 'User Register'
+  new_user: 'New User'
+  new_user_register: 'New User Register'
+  password confirmation: 'Password Confirmation'
+  edit_user_register: 'Edit User Register'
+  show_user_register: 'Show User Register'
+  
+  # servants
+  
+  servants: 'Servants'
+  all_servants: 'All Servants'
+  
+  # doctors
+  
+  doctors: 'Doctors'
+  crm: 'CRM'
+  
+  doctor_register: 'Doctor Register'
+  new_doctor: 'New Doctor'

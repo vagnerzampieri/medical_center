@@ -9,7 +9,9 @@
 	<body>    	
   	<section class="page">
   		<info>
-  			<h5>zampieri - <a href="#">sair</a></h5>
+  			<% if user_signed_in? %>
+          <h5><%= current_user.email %> - <%= link_to "sair", destroy_user_session_path %></h5>
+        <% end %>
   		</info>
   	
   		<div class="line"></div>

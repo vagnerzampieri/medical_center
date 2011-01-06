@@ -63,4 +63,18 @@ class Admin::UsersController < ApplicationController
     end
 	end
 	
+	def enable
+    @user = User.find(params[:id])
+    @user.enabled = (@user.enabled) ? false : true
+
+    if @user.save
+      flash[:success] = (@user.enabled) ? I18n.t(:user_enabled) : I18n.t(:user_disabled)
+    else
+      flash[:error] = I18n.t(:user_enable_error)
+    end
+    
+    redirect_to(admin_users_path)
+    
+  end
+	
 end

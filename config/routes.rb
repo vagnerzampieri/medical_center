@@ -3,8 +3,30 @@ RubyMedicalCenter::Application.routes.draw do |map|
 
 
 	namespace :admin do
-		resources :users
-		resources :patients
+		resources :users do
+		  member do
+		    get :enable
+      end
+    end
+		
+		resources :patients do
+		  member do
+		    get :enable
+      end
+    end
+    
+    resources :servants do
+      member do
+        get :enable
+      end
+    end
+    
+    resources :doctors do
+      member do
+        get :enable
+      end
+    end
+    
 	end	
 		
 	match 'home' => 'home#index'

@@ -5,17 +5,18 @@ class CreatePatients < ActiveRecord::Migration
       t.date :birth
       t.string :sex
       t.string :cpf
+      t.references :state
+      t.string :email
       t.string :address
-      t.string :number
-      t.string :complement
+      t.string :number 
+      t.string :complement 
       t.string :zip_code
       t.string :district
       t.string :city
-      t.references :state
-      t.string :ddd
+      t.string :area_code
       t.string :telephone
       t.string :mobile
-      t.string :email
+      t.boolean :enabled, :default => true
 
       t.timestamps
     end

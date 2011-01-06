@@ -1,0 +1,34 @@
+        <subnav class="clear">
+        	<ul>
+        	  <li><%= link_to I18n.t(:doctors), :controller => :doctors %></li>
+            <li><a href="#">Enfermagem</a></li>
+            <li><a href="#">Administrativo</a></li>
+          </ul>
+        </subnav>
+        <article class="article">
+          <h2><%= I18n.t :all_servants %></h2>
+          
+          <div class="line"></div> 
+          
+          <div class="articleBody clear">  
+		        <table>
+		        	<thead>
+		        		<th><%= I18n.t :name %></th>
+		        		<th><%= I18n.t :email %></th>
+		        		<th><%= I18n.t :telephone %></th>
+		        		<th><%= I18n.t :city %></th>
+		        		<th><%= I18n.t :state %></th>
+		        	</thead>
+		        	<% @servants.each do |servant| %>
+		        	<tr>
+		        		<td><%= servant.name %></td>
+		        		<td><%= servant.email %></td>
+		        		<td><%= servant.area_code %> - <%= servant.telephone %></td>
+		        		<td><%= servant.city %></td>
+		        		<td><%= servant.state.name unless servant.state.nil? %></td>
+		        	</tr>
+		        	<% end %>
+		        </table>
+          </div>
+        </article>
+

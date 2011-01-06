@@ -1,0 +1,193 @@
+Site Medical Center:
+rails 3, ruby 1.9.2, HTML5, CSS3, JQuery
+
+Layout: Fazer inicialmente a parte de login e cadastro de usuários
+
+Usuários: Quero usar a gem Devise é bem interessante, a recepcionista(permissão administrativa), cadastrará
+o paciente(cadastro de paciente), assim que acabar, aparecerá uma tela com os dados dele para login e senha
+para o sistema(cadastro de usuários). No caso de novo funcionário, alguém do administrativo irá passar os dados 
+deste funcionário para o computador, e também aparecerá opção para se cadastrar no site(dependendo de sua
+função na clínica). 
+
+Permissões: 
+Desenvolvedor = tudo
+Médico = Agenda
+Enfermagem = Agenda
+Administrativo = Financeiro, Contas a Pagar, Contas a receber, Relatórios, Consultas e Agenda
+Paciente = Agenda e marcar Consultas
+
+Modelo (Paciente)
+
+nome
+nascimento(verificar a possibilidade de colocar um calendário)
+sexo
+cpf
+endereço
+número
+complemento
+cep
+bairro
+cidade
+estado (existe uma tabela no banco com as ufs também)
+ddd
+telefone
+celular
+email
+
+Modelo (Funcionário(a))
+
+Quando clicar na aba de funcionários aparecerá abas internas para verificar qual tipo de funcionário será
+cadastrado, médico(a), enfermeiro(a), administração.
+
+nome
+nascimento(verificar a possibilidade de colocar um calendário)
+sexo
+cpf
+endereço
+número
+complemento
+cep
+bairro
+cidade
+estado (existe uma tabela no banco com as ufs também)
+ddd
+telefone
+celular
+email
+
+Modelo (Médico(a)(campos a mais))
+
+crm
+especialidades(poderá ser no mínimo 1 e no máximo 5, terá que ser gravado em uma tabela separada relacionando
+o id do médico com a especialidade, será feito um radio button para facilitar na visualização e escolha)
+
+Modelo (Enfermeira(o))
+
+coren
+especialidades(poderá ser no mínimo 1 no máximo 3, e terá que ser digitada )
+
+Modelo (Usuário do sistema)
+
+nome
+tipo de usuário (quando for gravado no banco, vai gravar o id do tipo e o id do usuário, para as permissões)
+login (verificar a possibilidade de fazer o login com "login", ou "email")
+email (verificar a possibilidade de fazer o login com "login", ou "email")
+senha (será usado o algoritmo RC4)
+confirmar senha
+
+Obs.: O tipo de usuário é diferente do tipo de funcionário, tipo de funcionário é só o cargo que ele exerce
+na empresa
+
+
+
+Menu: Verificar se o rails-widgets funciona no rails 3, ou arrumar uma maneira interessante de mostrar os
+submenus. 
+O menu principal ficará:
+Principal
+Agendas
+Financeiro(Relatórios, Contas a pagar, Contas a receber)
+Funcionários(Médicos, Enfermagem, Administrativo)
+Pacientes
+Usuários
+Sobre
+
+Contas: Os cadastros de contas a pagar e a receber serão baseados(não feitos da mesma forma) que o já 
+existente em PHP, as saídas de financeiro e relatório, serão revisadas, seria interessante ter as opções 
+de gerar um arquivo de excel ou imprimir direto.
+
+Modelo (Contas a pagar)
+
+pagar para (fazer opção para ser adicionado novos fornecedores)
+categoria (fazer opção para ser adicionado novas categorias)
+vencimento (calendário com jquery)
+valor (colocar valor inicial zero(0,00), mas não pode ser salvo com esse valor)
+juros (colocar valor inicial zero(0,00), pode ser salvo assim)
+multa (colocar valor inicial zero(0,00), pode ser salvo assim)
+tipo de documento
+número do documento e série
+código de barra do documento
+Observações
+
+Modelo (Contas a receber)
+
+pagar para (fazer opção para ser adicionado novos fornecedores)
+categoria (fazer opção para ser adicionado novas categorias)
+vencimento (calendário com jquery)
+valor (colocar valor inicial zero(0,00), mas não pode ser salvo com esse valor)
+juros (colocar valor inicial zero(0,00), pode ser salvo assim)
+multa (colocar valor inicial zero(0,00), pode ser salvo assim)
+tipo de documento
+número do documento e série
+código de barra do documento
+Observações
+
+Agenda: Cadastro de reuniões, marcação de consultas, visualização do tipo de consulta(depende de quem está
+acessando, o administrativo de um jeito, médico de outro e paciente de outro), as reuniões não podem bater
+com os horários de consulta dos médicos(por isso será separado datas e horas específicas, que poderá ou não
+ser utilizadas para reuniões). Para cadastrar uma reunião será adicionado os funcionários participantes
+e enviado email(assunto, data, local, hora, participantes da reunião), para todos os funcionários envolvidos 
+nela(caso este projeto vá para um servidor)
+
+Modelo (Reunião)
+
+assunto
+funcionários envolvidos (será feito um radio button para facilitar na visualização e escolha)
+local
+data
+hora
+
+Marcação de consultas: Este menu ficará em Agenda. O Paciente e o Administrativo poderá marcar as consultas, 
+que assim que for feita irá automaticamente para um histórico do paciente na clínica, com todas as consultas 
+dele em 1 ano (ou mais, verificar), não será possivel marcar consultas para o mesmo dia, dias anteriores, 
+ou para dias com horários iguais a de outro paciente. Um email será enviado para o paciente que fizer marcar 
+a consulta, para o médico escolhido e para a administração da clínica(este caso só será feito, se tiver 
+que colocar o sistema em um servidor)
+
+Modelo (Agendamento de Consultas)
+
+nome (do paciente)
+email (do paciente)
+médico (será feita uma busca com todos do hospital)
+especialidade(aparecerá as especialidades deste médico em um select)
+data
+hora (com diferença de 20 minutos)
+
+Modelo (Agenda de Consultas - Reuniões)
+
+(verificando a existência de plugins para fazer está função)
+
+Modelo (Agenda de Consultas - Médicos)
+
+(verificando a existência de plugins para fazer está função)
+
+Modelo (Agenda de Consultas - Pacientes)
+
+(verificando a existência de plugins para fazer está função)
+
+Financeiro: Atualmente gera relatórios de o que existe para receber, pagar, os inadimplentes(sendo colocados
+em uma tabela de devedores) e o fluxo de caixa(será interessante fazer com gráficos, por isso estou verificando
+se é mais interessante fazer com HTML5 ou Open Flash Chart 2(plugin))
+
+Relatório: Atualmente gera relatório de médicos, funcionários e pacientes, porém tem que pensar uma maneira
+melhor de utilizar está ferramenta.
+
+
+Calculadora: não vejo motivo suficiente para fazer, principalmente que qualquer SO já tem a sua, é desnecessário.
+
+
+OBS: Para criar algo como o contents do EH precisa fazer o seguinte(não sei se precisa de algum plugin
+para isso, mas não vejo necessidades, até o momento):
+
+Primeiro se deve criar um model com uma migração(um content, como no EH) que servirá para colocar os tipos 
+diferentes dentro dela(EH,BIA,BEY,GEY), esses tipos serão criados os seus models e controllers para eles
+e o model vai ser associado com o content(class Eh < Content), nas migrações vai ser criado os campos
+para a tabela principal content. Utilizar a mesma ideia para as contas a pagar e a receber, colocando um
+tipo sendo pagar, ou receber dentro de uma tabela de conta, sendo assim vou poder fazer um Pagar.find por 
+exemplo, e se for possivel fazer a mesma coisa com os tipos de funcionários que vou fazer(verificar esta
+possibilidade).
+
+
+
+
+O que está feito:
+

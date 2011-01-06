@@ -1,0 +1,84 @@
+<table>
+  <tr>
+    <td><%= f.label I18n.t :name %>:</td>
+    <td><%= f.text_field :name %></td> 
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :birth %>:</td>
+    <td>
+    <%= f.date_select :birth, 
+		          :use_month_numbers => true,
+		          :order => [:day, :month, :year],
+		          :default => Time.now,
+		          :start_year => 1900,
+		          :end_year => Time.now.year + 1 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :sex %>:</td>
+    <td>
+      <%= f.radio_button :sex, 'Masculino', :checked => true %> M
+      <%= f.radio_button :sex, 'Feminino', :checked => false %> F 
+    </td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :cpf %>:</td>
+    <td><%= f.text_field :cpf %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :state %>:</td>
+    <td>
+      <%= f.collection_select(:state_id, @states, :id, :name, {:prompt => 'Selecione'} ) %>
+    </td>
+  </tr>
+    <tr>
+    <td><%= f.label I18n.t :address %>:</td>
+    <td><%= f.text_field :address %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :number %>:</td>
+    <td><%= f.text_field :number %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :complement %>:</td>
+    <td><%= f.text_field :complement %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :zip_code %>:</td>
+    <td><%= f.text_field :zip_code %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :district %>:</td>
+    <td><%= f.text_field :district %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :city %>:</td>
+    <td><%= f.text_field :city %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :telephone %>:</td>
+    <td>
+      <%= f.text_field :area_code, :size => 3 %><%= f.text_field :telephone %> 
+    </td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :mobile %>:</td>
+    <td><%= f.text_field :mobile %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :email %>:</td>
+    <td><%= f.text_field :email %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :enabled %>:</td>
+    <td><%= f.check_box :enabled %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :crm %>:</td>
+    <td><%= f.text_field :crm %></td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :specialty %>:</td>  
+    <!-- revisar -->
+    <td><%= collection_select(:specialty, '1', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></td>
+  </tr>
+</table>

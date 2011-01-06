@@ -1,4 +1,4 @@
-			<%= render :partial => 'admin/shared/subnav' %>
+			<%#= render :partial => 'admin/shared/subnav' %>
 			
 				<article class="article">
          	<h2><%= I18n.t :patient_register %></h2>
@@ -14,6 +14,7 @@
 		        		<th><%= I18n.t :telephone %></th>
 		        		<th><%= I18n.t :city %></th>
 		        		<th><%= I18n.t :state %></th>
+		        		<th><%= I18n.t :enabled %></th>
 		        		<th></th>
 		        		<th></th>
 		        		<th></th>
@@ -22,9 +23,10 @@
 		        	<tr>
 		        		<td><%= patient.name %></td>
 		        		<td><%= patient.email %></td>
-		        		<td><%= patient.ddd %> - <%= patient.telephone %></td>
+		        		<td><%= patient.area_code %> - <%= patient.telephone %></td>
 		        		<td><%= patient.city %></td>
 		        		<td><%= patient.state.name %></td>
+		        		<td><%= link_to show_enabled_icon(patient.enabled), enable_admin_patient_path(patient.id), :confirm => enable_confirm_message(patient.enabled) %></td>
 		        		<td><%= link_to I18n.t(:view), admin_patient_path(patient) %></td>
 		        		<td><%= link_to I18n.t(:edit), edit_admin_patient_path(patient) %></td>
 		        		<td><%= button_to I18n.t(:delete), {:action => "destroy", :id => patient.id}, :method => :delete %></td>

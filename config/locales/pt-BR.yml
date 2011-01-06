@@ -3,7 +3,7 @@
 
 pt-BR:
   delete: 'Delete'
-  view: 'Visualisar'
+  view: 'Visualizar'
   edit: 'Editar'
   update: 'Atualizar'
   cancel: 'Cancelar'
@@ -33,7 +33,7 @@ pt-BR:
   new_patient_register: 'Novo Cadastro de Paciente'
   patient_register: 'Cadastrar Paciente'
   edit_patient_register: 'Editar Cadastro de Pacientes'
-  show_patient_register: 'Visualisar Cadastro de Pacientes'
+  show_patient_register: 'Visualizar Cadastro de Pacientes'
   
   # users
   
@@ -41,3 +41,23 @@ pt-BR:
   enabled: 'Ativo'
   login: 'Login'
   can_login: 'Pode efetuar o login?'
+  
+  user_register: 'Cadastrar Usuário'
+  new_user: 'Novo Usuário'
+  new_user_register: 'Novo Cadastro de Usuário'
+  password_confirmation: 'Confirmar Senha'
+  edit_user_register: 'Editar Usuário Cadastrado'
+  show_user_register: 'Visualizar Usuário Cadastrado'
+  
+  # servants
+  
+  servants: 'Funcionários'
+  all_servants: 'Todos os Funcionários'
+  
+  # doctors
+  
+  doctors: 'Médicos'
+  crm: 'CRM'
+  
+  doctor_register: 'Cadastrar Médico'
+  new_doctor: 'Novo Médico'

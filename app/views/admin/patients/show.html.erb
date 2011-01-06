@@ -1,4 +1,4 @@
-			<%= render :partial => 'admin/shared/subnav' %>
+			<%#= render :partial => 'admin/shared/subnav' %>
 			
 				<article class="article">
         	<h2><%= I18n.t :show_patient_register %></h2>
@@ -53,7 +53,7 @@
 							</tr>
 							<tr>
 								<td><%= I18n.t :telephone %>:</td>
-								<td><%= @patient.ddd %> <%= @patient.telephone %></td>
+								<td><%= @patient.area_code %> <%= @patient.telephone %></td>
 							</tr>
 							<tr>
 								<td><%= I18n.t :mobile %>:</td>
@@ -62,6 +62,10 @@
 							<tr>
 								<td><%= I18n.t :email %>:</td>
 								<td><%= @patient.email %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :enabled %>:</td>
+								<td><%= show_enabled_icon(@patient.enabled) %></td>
 							</tr>
 						</table>	
 						<%= link_to I18n.t(:back), admin_patients_path %>

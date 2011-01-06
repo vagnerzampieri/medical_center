@@ -10,6 +10,7 @@ class Admin::PatientsController < ApplicationController
 	
 	def new
     @patient = Patient.new
+    @states = State.all
     
     respond_with @patient
   end
@@ -19,7 +20,7 @@ class Admin::PatientsController < ApplicationController
 		
 		respond_to do |format|
       if @patient.save
-        format.html { redirect_to(@patient, :notice => 'Patient was successfully created.') }
+        format.html { redirect_to(admin_patients_url, :notice => 'Patient was successfully created.') }
         format.xml  { render :xml => @patient, :status => :created, :location => @patient }
       else
         format.html { render :action => "new" }
@@ -37,6 +38,7 @@ class Admin::PatientsController < ApplicationController
   
   def edit
     @patient = Patient.find(params[:id])
+    @states = State.all
     
     respond_with @patient
   end
@@ -46,7 +48,7 @@ class Admin::PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.update_attributes(params[:patient])
-        format.html { redirect_to(@patient, :notice => 'Patient was successfully updated.') }
+        format.html { redirect_to(admin_patients_url, :notice => 'Patient was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -64,6 +66,20 @@ class Admin::PatientsController < ApplicationController
       format.html { redirect_to(admin_patients_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def enable
+    @patient = Patient.find(params[:id])
+    @patient.enabled = (@patient.enabled) ? false : true
+
+    if @patient.save
+      flash[:success] = (@patient.enabled) ? I18n.t(:patient_enabled) : I18n.t(:patient_disabled)
+    else
+      flash[:error] = I18n.t(:patient_enable_error)
+    end
+    
+    redirect_to(admin_patients_path)
+    
   end
 
 end
