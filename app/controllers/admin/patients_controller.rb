@@ -3,14 +3,14 @@ class Admin::PatientsController < ApplicationController
 	respond_to :html, :xml
 
 	def index
-		@patients = Patient.all(:order => 'name ASC')
+		@patients = Patient.order('name ASC')
 		
 		respond_with @patients
 	end
 	
 	def new
     @patient = Patient.new
-    @states = State.all
+    @states = State.order('name ASC')
     
     respond_with @patient
   end
@@ -38,7 +38,7 @@ class Admin::PatientsController < ApplicationController
   
   def edit
     @patient = Patient.find(params[:id])
-    @states = State.all
+    @states = State.order('name ASC')
     
     respond_with @patient
   end

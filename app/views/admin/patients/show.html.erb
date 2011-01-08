@@ -13,7 +13,7 @@
 							</tr>
 							<tr>
 								<td><%= I18n.t :birth %>:</td>
-								<td><%= @patient.birth %></td>
+								<td><%= @patient.birth.strftime("%d-%m-%Y") %></td>
 							</tr>
 							<tr>
 								<td><%= I18n.t :sex %>:</td>
