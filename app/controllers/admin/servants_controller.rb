@@ -3,8 +3,8 @@ class Admin::ServantsController < ApplicationController
 	respond_to :html, :xml
 	
   def index
-    @servants = Servant.all(:order => 'name ASC')
+    @servants = Servant.order('name ASC')
     
-    respond_with @patients
+    respond_with @servants
   end
 end
