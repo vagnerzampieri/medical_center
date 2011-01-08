@@ -56,6 +56,8 @@ en:
   
   doctors: 'Doctors'
   crm: 'CRM'
+  specialty: 'Specialty'
   
   doctor_register: 'Doctor Register'
   new_doctor: 'New Doctor'
+  new_doctor_register: 'New Doctor Register'

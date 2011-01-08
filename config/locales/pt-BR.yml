@@ -30,7 +30,7 @@ pt-BR:
   
   patients: 'Pacientes'
   new_patient: 'Novo Paciente'
-  new_patient_register: 'Novo Cadastro de Paciente'
+  new_patient_register: 'Cadastrar Novo Paciente'
   patient_register: 'Cadastrar Paciente'
   edit_patient_register: 'Editar Cadastro de Pacientes'
   show_patient_register: 'Visualizar Cadastro de Pacientes'
@@ -44,7 +44,7 @@ pt-BR:
   
   user_register: 'Cadastrar Usuário'
   new_user: 'Novo Usuário'
-  new_user_register: 'Novo Cadastro de Usuário'
+  new_user_register: 'Cadastrar Novo Usuário'
   password_confirmation: 'Confirmar Senha'
   edit_user_register: 'Editar Usuário Cadastrado'
   show_user_register: 'Visualizar Usuário Cadastrado'
@@ -58,6 +58,8 @@ pt-BR:
   
   doctors: 'Médicos'
   crm: 'CRM'
+  specialty: 'Especialidade'
   
   doctor_register: 'Cadastrar Médico'
   new_doctor: 'Novo Médico'
+  new_doctor_register: 'Cadastrar Novo Médico  
