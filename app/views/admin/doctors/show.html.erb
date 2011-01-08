@@ -1,0 +1,78 @@
+<table>
+  <tr>
+    <td><%= I18n.t :name %>:</td>
+    <td><%= @doctor.name %></td> 
+  </tr>
+  <tr>
+    <td><%= I18n.t :birth %>:</td>
+    <td>
+    <%= @doctor.birth.strftime("%d-%m-%Y") %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :sex %>:</td>
+    <td>
+      <%= @doctor.sex %> 
+    </td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :cpf %>:</td>
+    <td><%= @doctor.cpf %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :state %>:</td>
+    <td>
+      <%= @doctor.state.name %>
+    </td>
+  </tr>
+    <tr>
+    <td><%= I18n.t :address %>:</td>
+    <td><%= @doctor.address %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :number %>:</td>
+    <td><%= @doctor.number %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :complement %>:</td>
+    <td><%= @doctor.complement %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :zip_code %>:</td>
+    <td><%= @doctor.zip_code %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :district %>:</td>
+    <td><%= @doctor.district %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :city %>:</td>
+    <td><%= @doctor.city %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :telephone %>:</td>
+    <td>
+      <%= @doctor.area_code %><%= @doctor.telephone %> 
+    </td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :mobile %>:</td>
+    <td><%= @doctor.mobile %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :email %>:</td>
+    <td><%= @doctor.email %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :enabled %>:</td>
+    <td><%= @doctor.enabled %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :crm %>:</td>
+    <td><%= @doctor.crm %></td>
+  </tr>
+  <tr>
+    <td><%= I18n.t :specialty %>:</td>  
+    <!-- revisar -->
+    <td><%#= collection_select(:specialty, '1', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></td>
+  </tr>
+</table>
