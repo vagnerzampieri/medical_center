@@ -174,20 +174,5 @@ melhor de utilizar está ferramenta.
 
 Calculadora: não vejo motivo suficiente para fazer, principalmente que qualquer SO já tem a sua, é desnecessário.
 
-
-OBS: Para criar algo como o contents do EH precisa fazer o seguinte(não sei se precisa de algum plugin
-para isso, mas não vejo necessidades, até o momento):
-
-Primeiro se deve criar um model com uma migração(um content, como no EH) que servirá para colocar os tipos 
-diferentes dentro dela(EH,BIA,BEY,GEY), esses tipos serão criados os seus models e controllers para eles
-e o model vai ser associado com o content(class Eh < Content), nas migrações vai ser criado os campos
-para a tabela principal content. Utilizar a mesma ideia para as contas a pagar e a receber, colocando um
-tipo sendo pagar, ou receber dentro de uma tabela de conta, sendo assim vou poder fazer um Pagar.find por 
-exemplo, e se for possivel fazer a mesma coisa com os tipos de funcionários que vou fazer(verificar esta
-possibilidade).
-
-
-
-
 O que está feito:
 
