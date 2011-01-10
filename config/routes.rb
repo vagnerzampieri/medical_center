@@ -1,4 +1,4 @@
-RubyMedicalCenter::Application.routes.draw do |map|
+RubyMedicalCenter::Application.routes.draw do
   devise_for :users
 
 
