@@ -5,6 +5,7 @@ class Admin::PatientsController < ApplicationController
 	def index
 		@patients = Patient.order('name ASC')
 		
+		
 		respond_with @patients
 	end
 	
