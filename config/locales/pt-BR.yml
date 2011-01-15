@@ -62,4 +62,16 @@ pt-BR:
   
   doctor_register: 'Cadastrar Médico'
   new_doctor: 'Novo Médico'
-  new_doctor_register: 'Cadastrar Novo Médico  
+  edit_doctor_register: 'Editar Médico Cadastrado'
+  new_doctor_register: 'Cadastrar Novo Médico'  
+  show_doctor_register: 'Visualizar Médico Cadastrado'
+  
+  # administratives
+  
+  administrative: 'Administrativo' 
+  
+  administrative_register: 'Cadastrar Funcionário do Administrativo'
+  new_administrative: 'Novo Funcionário do Administrativo'
+  edit_administrative_register: 'Editar Funcionário do Administrativo Cadastrado'
+  new_administrative_register: 'Cadastrar Novo Funcionário do Administrativo'
+  show_administrative_register: 'Visualizar Funcionário do Administrativo Cadastrado'

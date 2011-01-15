@@ -1,0 +1,3 @@
+class Administrative < Servant
+  
+end

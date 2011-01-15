@@ -1,87 +1,79 @@
         <%= render :partial => 'admin/shared/subnav_servants'%>
         
         <article class="article">
-        	<h2><%= I18n.t :info %></h2>
+        	<h2><%= I18n.t :show_administrative_register %></h2>
 
           <div class="line"></div>    
 
           <div class="articleBody clear">
+          
             <table>
               <tr>
                 <td><%= I18n.t :name %>:</td>
-                <td><%= @doctor.name %></td> 
+                <td><%= @administrative.name %></td> 
               </tr>
               <tr>
                 <td><%= I18n.t :birth %>:</td>
                 <td>
-                <%= @doctor.birth.strftime("%d-%m-%Y") %></td>
+                <%= @administrative.birth.strftime("%d-%m-%Y") %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :sex %>:</td>
                 <td>
-                  <%= @doctor.sex %> 
+                  <%= @administrative.sex %> 
                 </td>
               </tr>
               <tr>
                 <td><%= I18n.t :cpf %>:</td>
-                <td><%= @doctor.cpf %></td>
+                <td><%= @administrative.cpf %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :state %>:</td>
                 <td>
-                  <%= @doctor.state.name %>
+                  <%= @administrative.state.name %>
                 </td>
               </tr>
                 <tr>
                 <td><%= I18n.t :address %>:</td>
-                <td><%= @doctor.address %></td>
+                <td><%= @administrative.address %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :number %>:</td>
-                <td><%= @doctor.number %></td>
+                <td><%= @administrative.number %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :complement %>:</td>
-                <td><%= @doctor.complement %></td>
+                <td><%= @administrative.complement %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :zip_code %>:</td>
-                <td><%= @doctor.zip_code %></td>
+                <td><%= @administrative.zip_code %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :district %>:</td>
-                <td><%= @doctor.district %></td>
+                <td><%= @administrative.district %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :city %>:</td>
-                <td><%= @doctor.city %></td>
+                <td><%= @administrative.city %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :telephone %>:</td>
                 <td>
-                  <%= @doctor.area_code %><%= @doctor.telephone %> 
+                  <%= @administrative.area_code %><%= @administrative.telephone %> 
                 </td>
               </tr>
               <tr>
                 <td><%= I18n.t :mobile %>:</td>
-                <td><%= @doctor.mobile %></td>
+                <td><%= @administrative.mobile %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :email %>:</td>
-                <td><%= @doctor.email %></td>
+                <td><%= @administrative.email %></td>
               </tr>
               <tr>
                 <td><%= I18n.t :enabled %>:</td>
-                <td><%= @doctor.enabled %></td>
-              </tr>
-              <tr>
-                <td><%= I18n.t :crm %>:</td>
-                <td><%= @doctor.crm %></td>
-              </tr>
-              <tr>
-                <td><%= I18n.t :specialty %>:</td>  
-                <!-- revisar -->
-                <td><%#= collection_select(:specialty, '1', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></td>
+                <td><%= show_enabled_icon(@administrative.enabled) %></td>
               </tr>
             </table>
           </div>

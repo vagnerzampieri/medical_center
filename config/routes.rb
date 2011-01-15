@@ -27,6 +27,12 @@ RubyMedicalCenter::Application.routes.draw do
       end
     end
     
+    resources :administratives do
+      member do
+        get :enable
+      end
+    end 
+    
 	end	
 		
 	match 'home' => 'home#index'

@@ -40,6 +40,7 @@ en:
   enabled: 'Enable'
   login: 'Login'
   can_login: 'Can login?'
+  
   user_register: 'User Register'
   new_user: 'New User'
   new_user_register: 'New User Register'
@@ -60,4 +61,16 @@ en:
   
   doctor_register: 'Doctor Register'
   new_doctor: 'New Doctor'
+  edit_doctor_register: 'Edit Doctor Register'
   new_doctor_register: 'New Doctor Register'
+  show_doctor_register: 'Show Doctor Register'
+  
+  # administratives
+  
+  administrative: 'Administrative' 
+  
+  administrative_register: 'Administrative Register Servant'
+  new_administrative: 'New Servant Administrative'
+  edit_administrative_register: 'Edit Servant Administrative Register'
+  new_administrative_register: 'New Servant Administrative Register'
+  show_administrative_register: 'Show Servant Administrative Register'

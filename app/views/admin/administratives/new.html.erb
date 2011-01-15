@@ -1,0 +1,17 @@
+			<%= render :partial => 'admin/shared/subnav_servants'%>
+			
+				<article class="article">
+        	<h2><%= I18n.t :new_administrative_register %></h2>
+
+          <div class="line"></div>    
+
+          <div class="articleBody clear">
+          	<%= form_for(@administrative, :as => :administrative, :url => admin_administratives_path, :html => { :method => :post, :class => "form", :id => "form" }) do |f| %>
+      				<%= render :partial => 'form', :locals => { :f => f }  %>
+      				<%= submit_tag I18n.t(:create) %>
+      				<%= link_to I18n.t(:cancel), admin_administratives_path %>
+    				<% end %>
+          </div>
+        </article>       	
+        	
+        	

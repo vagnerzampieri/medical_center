@@ -1,15 +1,15 @@
         <%= render :partial => 'admin/shared/subnav_servants'%>
         
         <article class="article">
-        	<h2><%= I18n.t :edit_doctor_register %></h2>
+        	<h2><%= I18n.t :edit_administrative_register %></h2>
 
           <div class="line"></div>    
 
           <div class="articleBody clear">
-          	<%= form_for(@doctor, :as => :doctor, :url => admin_doctor_path, :html => { :method => :put, :class => "form", :id => "form" }) do |f| %>
+          	<%= form_for(@administrative, :as => :administrative, :url => admin_administrative_path, :html => { :method => :put, :class => "form", :id => "form" }) do |f| %>
       				<%= render :partial => 'form', :locals => { :f => f }  %>
       				<%= submit_tag I18n.t(:update) %>
-      				<%= link_to I18n.t(:cancel), admin_doctors_path %>
+      				<%= link_to I18n.t(:cancel), admin_administratives_path %>
     				<% end %>
           </div>
         </article>

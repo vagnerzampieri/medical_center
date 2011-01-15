@@ -24,7 +24,7 @@ class Admin::DoctorsController < ApplicationController
     
     respond_to do |format|
       if @doctor.save
-        format.html { redirect_to(admin_patients_url, :notice => 'Patient was successfully created.') }
+        format.html { redirect_to(admin_doctors_url, :notice => 'Doctor was successfully created.') }
         format.xml  { render :xml => @doctor, :status => :created, :location => @doctor }
       else
         format.html { render :action => "new" }
@@ -67,8 +67,7 @@ class Admin::DoctorsController < ApplicationController
   end
 
   def destroy
-    @doctor = Doctor.find(params[:id])
-    @doctor.destroy
+    Doctor.find(params[:id]).destroy
 		
     respond_to do |format|
       format.html { redirect_to(admin_doctors_url) }
@@ -81,7 +80,7 @@ class Admin::DoctorsController < ApplicationController
     @doctor.enabled = (@doctor.enabled) ? false : true
 
     if @doctor.save
-      flash[:success] = (@doctor.enabled) ? I18n.t(:doctor_enabled) : I18n.t(:patient_disabled)
+      flash[:success] = (@doctor.enabled) ? I18n.t(:doctor_enabled) : I18n.t(:doctor_disabled)
     else
       flash[:error] = I18n.t(:doctor_enable_error)
     end

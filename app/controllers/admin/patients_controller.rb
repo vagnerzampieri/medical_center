@@ -60,8 +60,7 @@ class Admin::PatientsController < ApplicationController
   end
 
   def destroy
-    @patient = Patient.find(params[:id])
-    @patient.destroy
+    Patient.find(params[:id]).destroy
 		
     respond_to do |format|
       format.html { redirect_to(admin_patients_url) }
