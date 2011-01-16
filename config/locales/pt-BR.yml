@@ -75,3 +75,13 @@ pt-BR:
   edit_administrative_register: 'Editar Funcionário do Administrativo Cadastrado'
   new_administrative_register: 'Cadastrar Novo Funcionário do Administrativo'
   show_administrative_register: 'Visualizar Funcionário do Administrativo Cadastrado'
+    
+  # nurses
+  
+  nurse: 'Enfermagem'
+  
+  nurse_register: 'Cadastrar Funcionário da Enfermagem'
+  new_nurse: 'Novo Funcionário da Enfermagem'
+  edit_nurse_register: 'Editar Funcionário da Enfermagem Cadastrado'
+  new_nurse_register: 'Cadastrar Novo Funcionário da Enfermagem'
+  show_nurse_register: 'Visualizar Funcionário da Enfermagem Cadastrado'

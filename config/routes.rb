@@ -31,6 +31,12 @@ RubyMedicalCenter::Application.routes.draw do
       member do
         get :enable
       end
+    end
+    
+    resources :nurses do
+      member do
+        get :enable
+      end
     end 
     
 	end	

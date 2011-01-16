@@ -12,7 +12,7 @@ class Admin::AdministrativesController < ApplicationController
     @administrative = Administrative.new
     @states = State.order('name ASC')
     
-    respond_with @administratives
+    respond_with @administrative
   end
   
   def create

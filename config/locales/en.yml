@@ -74,3 +74,13 @@ en:
   edit_administrative_register: 'Edit Servant Administrative Register'
   new_administrative_register: 'New Servant Administrative Register'
   show_administrative_register: 'Show Servant Administrative Register'
+  
+  # nurses
+  
+  nurse: 'Enfermagem'
+  
+  nurse_register: 'Nurse Register Servant'
+  new_nurse: 'New Servant Nurse'
+  edit_nurse_register: 'Edit Servant Nurse Register'
+  new_nurse_register: 'New Servant Nurse Register'
+  show_nurse_register: 'Show Servant Nurse Register'

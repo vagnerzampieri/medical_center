@@ -1,0 +1,37 @@
+        <%= render :partial => 'admin/shared/subnav_servants'%>
+        
+        <article class="article">
+          <h2><%= I18n.t :nurse_register %></h2>
+					<h4>>> <%= link_to I18n.t(:new_nurse), new_admin_nurse_path %></h4>
+					
+          <div class="line"></div>    
+
+          <div class="articleBody clear">  
+		        <table>
+		        	<thead>
+		        		<th><%= I18n.t :name %></th>
+		        		<th><%= I18n.t :email %></th>
+		        		<th><%= I18n.t :telephone %></th>
+		        		<th><%= I18n.t :city %></th>
+		        		<th><%= I18n.t :state %></th>
+		        		<th><%= I18n.t :enabled %></th>
+		        		<th></th>
+		        		<th></th>
+		        		<th></th>
+		        	</thead>
+		        	<% @nurses.each do |nurse| %>
+		        	<tr>
+		        		<td><%= nurse.name %></td>
+		        		<td><%= nurse.email %></td>
+		        		<td><%= nurse.area_code %> - <%= nurse.telephone %></td>
+		        		<td><%= nurse.city %></td>
+		        		<td><%= nurse.state.name %></td>
+		        		<td><%= link_to show_enabled_icon(nurse.enabled), enable_admin_nurse_path(nurse.id), :confirm => enable_confirm_message(nurse.enabled) %></td>
+		        		<td><%= link_to I18n.t(:view), admin_nurse_path(nurse) %></td>
+		        		<td><%= link_to I18n.t(:edit), edit_admin_nurse_path(nurse) %></td>
+		        		<td><%= button_to I18n.t(:delete), {:action => "destroy", :id => nurse.id}, :method => :delete %></td>
+		        	</tr>
+		        	<% end %>
+		        </table>
+          </div>
+        </article>

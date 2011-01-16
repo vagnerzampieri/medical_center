@@ -1,0 +1,80 @@
+        <%= render :partial => 'admin/shared/subnav_servants'%>
+        
+        <article class="article">
+        	<h2><%= I18n.t :show_nurse_register %></h2>
+
+          <div class="line"></div>    
+
+          <div class="articleBody clear">
+          
+            <table>
+              <tr>
+                <td><%= I18n.t :name %>:</td>
+                <td><%= @nurse.name %></td> 
+              </tr>
+              <tr>
+                <td><%= I18n.t :birth %>:</td>
+                <td>
+                <%= @nurse.birth.strftime("%d-%m-%Y") %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :sex %>:</td>
+                <td>
+                  <%= @nurse.sex %> 
+                </td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :cpf %>:</td>
+                <td><%= @nurse.cpf %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :state %>:</td>
+                <td>
+                  <%= @nurse.state.name %>
+                </td>
+              </tr>
+                <tr>
+                <td><%= I18n.t :address %>:</td>
+                <td><%= @nurse.address %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :number %>:</td>
+                <td><%= @nurse.number %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :complement %>:</td>
+                <td><%= @nurse.complement %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :zip_code %>:</td>
+                <td><%= @nurse.zip_code %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :district %>:</td>
+                <td><%= @nurse.district %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :city %>:</td>
+                <td><%= @nurse.city %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :telephone %>:</td>
+                <td>
+                  <%= @nurse.area_code %><%= @nurse.telephone %> 
+                </td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :mobile %>:</td>
+                <td><%= @nurse.mobile %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :email %>:</td>
+                <td><%= @nurse.email %></td>
+              </tr>
+              <tr>
+                <td><%= I18n.t :enabled %>:</td>
+                <td><%= show_enabled_icon(@nurse.enabled) %></td>
+              </tr>
+            </table>
+          </div>
+        </article> 
