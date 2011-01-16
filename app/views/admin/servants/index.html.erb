@@ -1,10 +1,5 @@
-        <subnav class="clear">
-        	<ul>
-        	  <li><%= link_to I18n.t(:doctors), :controller => :doctors %></li>
-            <li><a href="#">Enfermagem</a></li>
-            <li><a href="#">Administrativo</a></li>
-          </ul>
-        </subnav>
+        <%= render :partial => 'admin/shared/subnav_servants'%>
+        
         <article class="article">
           <h2><%= I18n.t :all_servants %></h2>
           
