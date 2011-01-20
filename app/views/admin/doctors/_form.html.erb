@@ -79,6 +79,12 @@
   <tr>
     <td><%= f.label I18n.t :specialty %>:</td>  
     <!-- revisar -->
-    <td><%= collection_select(:specialty, '1', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></td>
+    <td>
+      <%= collection_select(:specialty, '1', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
+      <%= collection_select(:specialty, '2', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
+      <%= collection_select(:specialty, '3', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
+      <%= collection_select(:specialty, '4', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
+      <%= collection_select(:specialty, '5', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
+    </td>
   </tr>
 </table>

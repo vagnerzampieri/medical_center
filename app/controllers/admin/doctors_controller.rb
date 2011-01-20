@@ -18,12 +18,21 @@ class Admin::DoctorsController < ApplicationController
   
   def create
     @doctor = Doctor.new(params[:doctor])
-    
     #terminar
-    #puts "params =================== #{params[:specialty]}"
+    #puts "params =================== #{params[:specialty]['1']}"
+    #exit
     
     respond_to do |format|
       if @doctor.save
+        specialties = params[:specialty]
+        specialties.each_with_index do |index, specialty|
+          DoctorSpecialty.create(
+            :servant_id => @doctor.id,
+            :specialty_id => specialties["#{index+1}"].to_i,
+            :number => index+1
+          )
+        end
+        
         format.html { redirect_to(admin_doctors_url, :notice => 'Doctor was successfully created.') }
         format.xml  { render :xml => @doctor, :status => :created, :location => @doctor }
       else
