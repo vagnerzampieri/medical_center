@@ -80,11 +80,16 @@
     <td><%= f.label I18n.t :specialty %>:</td>  
     <!-- revisar -->
     <td>
-      <%= collection_select(:specialty, '1', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
-      <%= collection_select(:specialty, '2', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
-      <%= collection_select(:specialty, '3', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
-      <%= collection_select(:specialty, '4', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
-      <%= collection_select(:specialty, '5', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></br>
+      <% specialty_id = select_specialty(1) if params[:action] == 'edit' %>
+      <%= collection_select(:specialty, '1', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
+      <% specialty_id = select_specialty(2) if params[:action] == 'edit' %>
+      <%= collection_select(:specialty, '2', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
+      <% specialty_id = select_specialty(3) if params[:action] == 'edit' %>
+      <%= collection_select(:specialty, '3', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
+      <% specialty_id = select_specialty(4) if params[:action] == 'edit' %>
+      <%= collection_select(:specialty, '4', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
+      <% specialty_id = select_specialty(5) if params[:action] == 'edit' %>
+      <%= collection_select(:specialty, '5', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
     </td>
   </tr>
 </table>

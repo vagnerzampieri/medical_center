@@ -18,19 +18,18 @@ class Admin::DoctorsController < ApplicationController
   
   def create
     @doctor = Doctor.new(params[:doctor])
-    #terminar
-    #puts "params =================== #{params[:specialty]['1']}"
-    #exit
     
     respond_to do |format|
       if @doctor.save
         specialties = params[:specialty]
-        specialties.each_with_index do |index, specialty|
-          DoctorSpecialty.create(
-            :servant_id => @doctor.id,
-            :specialty_id => specialties["#{index+1}"].to_i,
-            :number => index+1
-          )
+        specialties.each do |index, specialty|
+          unless specialty.empty? or specialty.nil?
+            DoctorSpecialty.create(
+              :servant_id => @doctor.id,
+              :specialty_id => specialty,
+              :number => index
+            )
+          end
         end
         
         format.html { redirect_to(admin_doctors_url, :notice => 'Doctor was successfully created.') }
@@ -60,11 +59,22 @@ class Admin::DoctorsController < ApplicationController
   def update
     @doctor = Doctor.find(params[:id])
     
-    #terminar
-    #puts "params =================== #{params[:specialty]}"
+    specialty_clean = "DELETE FROM doctor_specialties WHERE servant_id = #{@doctor.id}"
+    ActiveRecord::Base::connection().update(specialty_clean)
+    
+    specialties = params[:specialty]
+    specialties.each do |index, specialty|
+      unless specialty.empty? or specialty.nil?
+        DoctorSpecialty.create(
+          :servant_id => @doctor.id,
+          :specialty_id => specialty,
+          :number => index
+        )
+      end
+    end
 
     respond_to do |format|
-      if @doctor.update_attributes(params[:doctor])
+      if @doctor.update_attributes(params[:doctor])        
         format.html { redirect_to(admin_doctors_url, :notice => 'Doctor was successfully updated.') }
         format.xml  { head :ok }
       else
