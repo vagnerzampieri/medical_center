@@ -27,4 +27,8 @@
     <td class="last"><%= f.label I18n.t :enabled %></td>
     <td class="middle"><%= f.check_box :enabled %></td>
   </tr>
+  <tr>
+    <td class="last"><%= f.label I18n.t :roles %></td>
+    <td class="middle"><%= collection_select(:role, '1', @roles, :id, :name, {:selected => @selected} ) %></td>
+  </tr>
 </table>

@@ -40,6 +40,7 @@ en:
   enabled: 'Enable'
   login: 'Login'
   can_login: 'Can login?'
+  roles : 'Roles'
   
   user_register: 'User Register'
   new_user: 'New User'

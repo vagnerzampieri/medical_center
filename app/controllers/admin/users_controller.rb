@@ -10,6 +10,7 @@ class Admin::UsersController < ApplicationController
 	
 	def new
 		@user = User.new
+		@roles = Role.where(:enabled => 1).order('name ASC')
 		
 		respond_with @users
 	end
@@ -17,9 +18,16 @@ class Admin::UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		
+		role = params[:role]
+    
+    role.each_value do |r|      
+      rl = Role.find r
+      @user.roles << rl
+    end
+		
 		respond_to do |format|
 			if @user.save
-				format.html { redirect_to(@user, :notice => 'User was successfully created.') }
+				format.html { redirect_to(admin_users_url, :notice => 'User was successfully created.') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
 			else
 				format.html { render :action => "new" }
@@ -36,14 +44,26 @@ class Admin::UsersController < ApplicationController
 	
 	def edit
 		@user = User.find(params[:id])
+		@roles = Role.where(:enabled => 1).order('name ASC')
+		@selected = @user.roles[0].id unless @selected = @user.roles[0].nil?
 	end
 	
 	def update
 		@user = User.find(params[:id])
 		
+		role_clean = "DELETE FROM roles_users WHERE user_id = #{@user.id}"
+    ActiveRecord::Base::connection().update(role_clean)
+    
+    role = params[:role]
+    
+    role.each_value do |r|      
+      rl = Role.find r
+      @user.roles << rl
+    end
+		
 		respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(admin_users_url, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
