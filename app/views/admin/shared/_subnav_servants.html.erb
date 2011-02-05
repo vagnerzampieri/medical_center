@@ -1,7 +1,13 @@
         <subnav class="clear">
         	<ul>
+        	  <% if has_access?('admin/doctors/index')%>
         	  <li><%= link_to I18n.t(:doctors), admin_doctors_path %></li>
+        	  <% end %>
+        	  <% if has_access?('admin/nurses/index') %>
             <li><%= link_to I18n.t(:nurse), admin_nurses_path %></li>
+            <% end %>
+            <% if has_access?('admin/administratives/index') %>
             <li><%= link_to I18n.t(:administrative), admin_administratives_path %></li>
+            <% end %>
           </ul>
         </subnav>

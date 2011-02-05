@@ -3,6 +3,9 @@ RubyMedicalCenter::Application.routes.draw do
 
 
 	namespace :admin do
+	  resources :home do
+    end
+    
 		resources :users do
 		  member do
 		    get :enable
