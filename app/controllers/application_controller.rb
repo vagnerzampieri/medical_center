@@ -69,7 +69,7 @@ class ApplicationController < ActionController::Base
   end
   
   def granted_actions(required_permission)
-    actions = [ 'home',
+    actions = [ '/',
                 'users/sign_in', 
                 'users/sign_out',
                 'users/password/new'

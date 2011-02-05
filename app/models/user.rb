@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :login, :enabled, :can_login, :email, :password, :password_confirmation
+  
+  validates_presence_of :name, :login
 end
