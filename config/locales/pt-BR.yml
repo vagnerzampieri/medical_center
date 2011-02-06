@@ -89,3 +89,13 @@ pt-BR:
   edit_nurse_register: 'Editar Funcionário da Enfermagem Cadastrado'
   new_nurse_register: 'Cadastrar Novo Funcionário da Enfermagem'
   show_nurse_register: 'Visualizar Funcionário da Enfermagem Cadastrado'
+  
+  # agendas
+  
+  agenda: 'Agenda'
+  agendas: 'Agendas'
+  
+  # consultations
+  
+  consultation: 'Consulta'
+  consultations: 'Consultas'

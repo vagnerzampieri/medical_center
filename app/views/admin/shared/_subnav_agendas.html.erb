@@ -1,0 +1,7 @@
+        <subnav class="clear">
+        	<ul>
+        	  <% if has_access?('admin/consultations/index')%>
+        	  <li><%= link_to I18n.t(:consultations), admin_consultations_path %></li>
+        	  <% end %>
+          </ul>
+        </subnav>

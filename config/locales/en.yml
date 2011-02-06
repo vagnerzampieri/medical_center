@@ -88,3 +88,13 @@ en:
   edit_nurse_register: 'Edit Servant Nurse Register'
   new_nurse_register: 'New Servant Nurse Register'
   show_nurse_register: 'Show Servant Nurse Register'
+  
+  # agendas
+  
+  agenda: 'Agenda'
+  agendas: 'Agendas'
+  
+  # consultations
+  
+  consultation: 'Consultation'
+  consultations: 'Consultations'

@@ -1,3 +1,5 @@
+URGENTE: Fazer uma tabela para comportar os planos de saúde da clínica, dos médicos e dos pacientes
+
 Site Medical Center:
 rails 3, ruby 1.9.2, HTML5, CSS3, JQuery
 
@@ -54,6 +56,7 @@ ddd
 telefone
 celular
 email
+Tem que adicionar campo para verificar que tipo de plano de saúde o paciente tem, ou se é partcular
 
 Modelo (Médico(a)(campos a mais))
 

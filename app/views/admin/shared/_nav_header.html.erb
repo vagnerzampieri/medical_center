@@ -3,7 +3,9 @@
         	  <% if has_access?('admin/home/index') %>
         	  <li><%= link_to I18n.t(:home), :controller => :home %></li>
         	  <% end %>
-            <li><a href="#">Agendas</a></li>
+        	  <% if has_access?('admin/agendas/index') %>
+            <li><%= link_to I18n.t(:agendas), :controller => :agendas %></li>
+            <% end %>
             <li><a href="#">Financeiro</a></li>
             <% if has_access?('admin/servants/index') %>
             <li><%= link_to I18n.t(:servants), :controller => :servants %></li>
