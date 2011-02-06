@@ -21,6 +21,21 @@ class Admin::PatientsController < ApplicationController
 		
 		respond_to do |format|
       if @patient.save
+        user = User.create(
+          :name => @patient.name,
+          :login => @patient.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
+          :email => @patient.email,
+          :password => @patient.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
+          :password_confirmation => @patient.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
+          :enabled => 1,
+          :can_login => 1
+        )        
+        
+        role = Role.find 6
+        user.roles << role
+        user.patients << @patient
+        user.save
+        
         format.html { redirect_to(admin_patients_url, :notice => 'Patient was successfully created.') }
         format.xml  { render :xml => @patient, :status => :created, :location => @patient }
       else

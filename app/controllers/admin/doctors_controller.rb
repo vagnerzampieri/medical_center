@@ -32,6 +32,21 @@ class Admin::DoctorsController < ApplicationController
           end
         end
         
+        user = User.create(
+          :name => @doctor.name,
+          :login => @doctor.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
+          :email => @doctor.email,
+          :password => @doctor.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
+          :password_confirmation => @doctor.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
+          :enabled => 1,
+          :can_login => 1
+        )        
+        
+        role = Role.find 6
+        user.roles << role
+        user.servants << @doctor
+        user.save
+        
         format.html { redirect_to(admin_doctors_url, :notice => 'Doctor was successfully created.') }
         format.xml  { render :xml => @doctor, :status => :created, :location => @doctor }
       else

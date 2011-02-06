@@ -14,7 +14,7 @@ Desenvolvedor = tudo
 Médico = Agenda
 Enfermagem = Agenda
 Administrativo = Financeiro, Contas a Pagar, Contas a receber, Relatórios, Consultas e Agenda
-Paciente = Agenda e marcar Consultas
+Paciente = Agenda e marcar Consultas, sua conta
 
 Modelo (Paciente)
 
