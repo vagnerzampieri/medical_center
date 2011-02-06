@@ -10,6 +10,7 @@ en:
   back: 'Back'
   create: 'Create'
   home: 'Home'
+  type: 'Type'
   
   # patients
   
@@ -57,6 +58,7 @@ en:
   
   # doctors
   
+  doctor: 'Doctor'
   doctors: 'Doctors'
   crm: 'CRM'
   specialty: 'Specialty'

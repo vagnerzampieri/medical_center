@@ -8,6 +8,7 @@
           <div class="articleBody clear">  
 		        <table>
 		        	<thead>
+		        	  <th><%= I18n.t :type %></th>
 		        		<th><%= I18n.t :name %></th>
 		        		<th><%= I18n.t :email %></th>
 		        		<th><%= I18n.t :telephone %></th>
@@ -16,6 +17,7 @@
 		        	</thead>
 		        	<% @servants.each do |servant| %>
 		        	<tr>
+		        	  <td><%= I18n.t "#{servant.type.downcase}" %></td>
 		        		<td><%= servant.name %></td>
 		        		<td><%= servant.email %></td>
 		        		<td><%= servant.area_code %> - <%= servant.telephone %></td>

@@ -11,6 +11,7 @@ pt-BR:
   create: 'Criar'
   roles: 'Regras'
   home: 'Home'
+  type: 'Tipo'
   
   # patients
   
@@ -58,6 +59,7 @@ pt-BR:
   
   # doctors
   
+  doctor: 'Médico'
   doctors: 'Médicos'
   crm: 'CRM'
   specialty: 'Especialidade'
