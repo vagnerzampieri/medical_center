@@ -79,9 +79,8 @@
                 <td><%= @doctor.crm %></td>
               </tr>
               <tr>
-                <td><%= I18n.t :specialty %>:</td>  
-                <!-- revisar -->
-                <td><%#= collection_select(:specialty, '1', @specialties, :id, :name, {:prompt => 'Selecione'} ) %></td>
+                <td><%= I18n.t :specialty %>:</td>
+                <%= show_specialty(@doctor)%>
               </tr>
             </table>
           </div>
