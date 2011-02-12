@@ -17,4 +17,4 @@ gem 'rails3-jquery-autocomplete'
 gem 'jquery-rails', '>= 0.2.6'
 gem "nifty-generators", :group => :development
 gem 'will_paginate', '3.0.pre2'
-
+gem 'ZenTest'
