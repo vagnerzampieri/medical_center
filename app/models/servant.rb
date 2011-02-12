@@ -3,6 +3,8 @@ class Servant < ActiveRecord::Base
 	belongs_to :state
 	has_many :doctor_specialties
   has_many :specialties, :through => :doctor_specialties
+  has_many :doctor_health_plans
+  has_many :health_plan, :through => :doctor_health_plans
   has_and_belongs_to_many :users
   
 	validates_presence_of :name, :message => 'Deve ser preenchido' 
