@@ -22,6 +22,14 @@
 								<td><%= @patient.cpf %></td>
 							</tr>
 							<tr>
+								<td><%= I18n.t :health_plan %>:</td>
+								<td><%= @patient.health_plan.name %></td>
+							</tr>
+							<tr>
+								<td><%= I18n.t :room %>:</td>
+								<td><%= @patient.room.name %></td>
+							</tr>
+							<tr>
 								<td><%= I18n.t :address %>:</td>
 								<td><%= @patient.address %></td>
 							</tr>

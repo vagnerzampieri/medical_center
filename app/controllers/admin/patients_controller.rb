@@ -12,6 +12,8 @@ class Admin::PatientsController < ApplicationController
 	def new
     @patient = Patient.new
     @states = State.order('name ASC')
+    @health_plans = HealthPlan.where(:enabled => 1).order('name ASC')
+    @rooms = Room.order('name ASC')
     
     respond_with @patient
   end
@@ -55,6 +57,8 @@ class Admin::PatientsController < ApplicationController
   def edit
     @patient = Patient.find(params[:id])
     @states = State.order('name ASC')
+    @health_plans = HealthPlan.where(:enabled => 1).order('name ASC')
+    @rooms = Room.order('name ASC')
     
     respond_with @patient
   end

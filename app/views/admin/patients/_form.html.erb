@@ -25,6 +25,18 @@
     <td><%= f.text_field :cpf %></td>
   </tr>
   <tr>
+    <td><%= f.label I18n.t :health_plan %>:</td>
+    <td>
+      <%= f.collection_select(:health_plan_id, @health_plans, :id, :name, {:prompt => 'Selecione'} ) %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= f.label I18n.t :room %>:</td>
+    <td>
+      <%= f.collection_select(:room_id, @rooms, :id, :name, {:prompt => 'Selecione'} ) %>
+    </td>
+  </tr>
+  <tr>
     <td><%= f.label I18n.t :state %>:</td>
     <td>
       <%= f.collection_select(:state_id, @states, :id, :name, {:prompt => 'Selecione'} ) %>
