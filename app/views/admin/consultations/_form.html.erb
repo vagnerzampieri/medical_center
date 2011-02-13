@@ -1,0 +1,8 @@
+<table>
+  <tr>
+    <td><%= f.label I18n.t :patient %>:</td>
+    <td>
+      <%= f.collection_select(:patient_id, @patients, :id, :name, {:prompt => 'Selecione'} ) %>
+    </td>
+  </tr>
+</table>

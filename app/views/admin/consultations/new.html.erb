@@ -1,0 +1,15 @@
+        <%= render :partial => 'admin/shared/subnav_agendas'%>
+        
+        <article class="article">
+        	<h2><%= I18n.t :new_consultation_register %></h2>
+
+          <div class="line"></div>    
+
+          <div class="articleBody clear">
+          	<%= form_for(@consultation, :as => :consultation, :url => admin_consultations_path, :html => { :method => :post, :class => "form", :id => "form" }) do |f| %>
+      				<%= render :partial => 'form', :locals => { :f => f }  %>
+      				<%= submit_tag I18n.t(:create) %>
+      				<%= link_to I18n.t(:cancel), admin_consultations_path %>
+    				<% end %>
+          </div>
+        </article>  

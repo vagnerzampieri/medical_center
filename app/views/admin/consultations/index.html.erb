@@ -1,10 +1,36 @@
         <%= render :partial => 'admin/shared/subnav_agendas'%>
         
         <article class="article">
-          
+          <h2><%= I18n.t :consultation_register %></h2>
+					<h4>>> <%= link_to I18n.t(:new_consultation), new_admin_consultation_path %></h4>
           <div class="line"></div> 
           
           <div class="articleBody clear">
-            <h1>Consulta</h1>  
+            <table>
+		        	<thead>
+		        		<th><%= I18n.t :specialty %></th>
+		        		<th><%= I18n.t :doctor %></th>
+		        		<th><%= I18n.t :consultation_date %></th>
+		        		<th><%= I18n.t :patient %></th>
+		        		<th><%= I18n.t :health_plan %></th>
+		        		<th><%= I18n.t :enabled %></th>
+		        		<th></th>
+		        		<th></th>
+		        		<th></th>
+		        	</thead>
+		        	<% @consultations.each do |consultation| %>
+		        	<tr>
+		        		<td><%= consultation.specialty.name %></td>
+		        		<td><%= consultation.servant.name %></td>
+		        		<td><%= consultation.consultation_date.strftime("%d/%m/%Y") %>
+		        		<td><%= consultation.patient.name %></td>
+		        		<td><%= consultation.health_plan.name %></td>
+		        		<td><%= link_to show_enabled_icon(consultation.enabled), enable_admin_consultation_path(consultation.id), :confirm => enable_confirm_message(consultation.enabled) %></td>
+		        		<td><%= link_to I18n.t(:view), admin_consultation_path(consultation) %></td>
+		        		<td><%= link_to I18n.t(:edit), edit_admin_consultation_path(consultation) %></td>
+		        		<td><%= button_to I18n.t(:delete), {:action => "destroy", :id => consultation.id}, :method => :delete %></td>
+		        	</tr>
+		        	<% end %>
+		        </table>
           </div>
         </article>
