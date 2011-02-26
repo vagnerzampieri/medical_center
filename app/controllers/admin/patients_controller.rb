@@ -35,7 +35,7 @@ class Admin::PatientsController < ApplicationController
         
         role = Role.find 6
         user.roles << role
-        user.patients << @patient
+        user.patient_id = @patient.id
         user.save
         
         format.html { redirect_to(admin_patients_url, :notice => 'Patient was successfully created.') }

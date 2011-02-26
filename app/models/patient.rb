@@ -1,7 +1,7 @@
 class Patient < ActiveRecord::Base
 
 	belongs_to :state
-	has_and_belongs_to_many :users
+	has_one :user
 	belongs_to :health_plan
 	belongs_to :room
 	has_many :consultations

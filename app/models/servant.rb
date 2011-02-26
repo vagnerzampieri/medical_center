@@ -6,7 +6,7 @@ class Servant < ActiveRecord::Base
   has_many :doctor_health_plans
   has_many :health_plan, :through => :doctor_health_plans
   has_many :consultations
-  has_and_belongs_to_many :users
+  has_one :user
   
 	validates_presence_of :name, :message => 'Deve ser preenchido' 
 	validates_length_of :cpf, :is => 11, :message => 'Deve ter 11 numeros'
