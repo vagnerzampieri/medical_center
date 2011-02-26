@@ -1,5 +1,14 @@
 URGENTE: Verificar quantos planos de saúde um médico pode ter
 
+Em vários cadastros futuros precisará de conhecimento profundo de ajax.
+
+Fazer teste:
+ajax
+jquery 1.5
+calendar helper
+pdfkit
+algum tipo de visualizador gráfico
+
 Site Medical Center:
 rails 3, ruby 1.9.2, HTML5, CSS3, JQuery
 
