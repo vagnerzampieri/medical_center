@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
 	layout 'admin/application'
-	respond_to :html, :xml
+	respond_to :html, :xml, :js
 	
 	def index
 		@users = User.all(:order => 'name ASC')

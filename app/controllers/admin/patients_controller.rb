@@ -1,6 +1,6 @@
 class Admin::PatientsController < ApplicationController
 	layout 'admin/application'
-	respond_to :html, :xml
+	respond_to :html, :xml, :js
 
 	def index
 		@patients = Patient.order('name ASC')

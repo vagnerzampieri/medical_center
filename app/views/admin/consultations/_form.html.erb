@@ -1,5 +1,11 @@
 <table>
   <tr>
+    <td><%= f.label I18n.t :specialty %>:</td>
+    <td>
+      <%= f.collection_select(:specialty_id, @specialties, :id, :name, {:prompt => 'Selecione'} ) %>
+    </td>
+  </tr>
+  <tr>
     <td><%= f.label I18n.t :patient %>:</td>
     <td>
       <%= f.collection_select(:patient_id, @patients, :id, :name, {:prompt => 'Selecione'} ) %>

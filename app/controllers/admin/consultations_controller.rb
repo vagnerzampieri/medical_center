@@ -1,6 +1,6 @@
 class Admin::ConsultationsController < ApplicationController
   layout 'admin/application'
-	respond_to :html, :xml
+	respond_to :html, :xml, :js
 	
   def index
     @consultations = Consultation.order('consultation_date DESC')
@@ -12,19 +12,21 @@ class Admin::ConsultationsController < ApplicationController
     @consultation = Consultation.new
     @specialties = Specialty.order('name ASC')
     @doctors = Doctor.order('name ASC')
-    #@patients = select_patient
-    #@health_plans = @patient.health_plan.name
+    @patients = select_patient
+    #@health_plans = @patients.health_plan.name
   end
   
-  def select_patient
-    patients = Patient.all
-    patients.each do |p|
-      if patients.user_ids[0] == current_user.id
-        @patients = Patient.where("id = #{patients.id}")
-      else
-        @patients = Patient.where('name ASC')
+  private
+  
+    def select_patient
+      patients = Patient.all
+      patients.each do |patient|
+        if patient.user.id == current_user.id
+          @patients = Patient.where("id = #{patient.id}")
+        else
+          @patients = Patient.order('name ASC')
+        end
       end
+      @patients
     end
-    @patients
-  end
 end
