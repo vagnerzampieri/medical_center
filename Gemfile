@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+gem 'rails', '3.0.3'
 gem 'mysql2'
 #gem 'mongrel', '1.1.5'
 gem 'aws-s3'
