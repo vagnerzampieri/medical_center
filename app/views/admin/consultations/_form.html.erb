@@ -1,3 +1,13 @@
+<script>
+  $(document).ready(function(){
+    $('#some').hide(6);
+    $('select').click(function(){
+      $('option').click(function(){
+        alert($(this).val());
+      });
+    });
+  });
+</script>
 <table>
   <tr>
     <td><%= f.label I18n.t :specialty %>:</td>
@@ -5,7 +15,7 @@
       <%= f.collection_select(:specialty_id, @specialties, :id, :name, {:prompt => 'Selecione'} ) %>
     </td>
   </tr>
-  <tr>
+  <tr id="some">
     <td><%= f.label I18n.t :patient %>:</td>
     <td>
       <%= f.collection_select(:patient_id, @patients, :id, :name, {:prompt => 'Selecione'} ) %>

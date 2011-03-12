@@ -36,7 +36,7 @@ class Patient < ActiveRecord::Base
         
     role = Role.find 6
     user.roles << role
-    user.servant_id = self.id
+    user.patient_id = self.id
     user.save
   end
 

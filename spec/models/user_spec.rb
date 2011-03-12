@@ -25,11 +25,6 @@ describe User do
     @user.should_not be_valid
   end
   
-  it 'should be not created without password' do
-    @user.password = ''
-    @user.should_not be_valid
-  end
-  
   it 'should be created with all requirements' do
     @user.should be_valid
   end
