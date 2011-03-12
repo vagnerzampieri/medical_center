@@ -1,3 +1,5 @@
+Foi feito uma nova forma para cadastrar as especialidades de um médico, mas na hora de editar não está trazendo os dados correspondentes, e eu não gravo uma posição(number). Ver a possibilidade de fazer com o simple form. Existem comentários em _form.html.erb e doctors_helper.rb 
+
 URGENTE: Verificar quantos planos de saúde um médico pode ter
 
 Em vários cadastros futuros precisará de conhecimento profundo de ajax.
