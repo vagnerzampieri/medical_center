@@ -22,12 +22,11 @@ class Admin::DoctorsController < ApplicationController
     respond_to do |format|
       if @doctor.save
         specialties = params[:specialty]
-        specialties.each do |index, specialty|
-          unless specialty.empty? or specialty.nil?
+        specialties.each_pair do |key, value|
+          if value == "1"
             DoctorSpecialty.create(
               :servant_id => @doctor.id,
-              :specialty_id => specialty,
-              :number => index
+              :specialty_id => key
             )
           end
         end
@@ -78,12 +77,11 @@ class Admin::DoctorsController < ApplicationController
     ActiveRecord::Base::connection().update(specialty_clean)
     
     specialties = params[:specialty]
-    specialties.each do |index, specialty|
-      unless specialty.empty? or specialty.nil?
+    specialties.each_pair do |key, value|
+      if value == "1"
         DoctorSpecialty.create(
           :servant_id => @doctor.id,
-          :specialty_id => specialty,
-          :number => index
+          :specialty_id => key
         )
       end
     end
@@ -101,12 +99,9 @@ class Admin::DoctorsController < ApplicationController
   end
 
   def destroy
-    Doctor.find(params[:id]).destroy
+    @doctor = Doctor.find(params[:id]).destroy
 		
-    respond_to do |format|
-      format.html { redirect_to(admin_doctors_url) }
-      format.xml  { head :ok }
-    end
+    respond_with @doctor
   end
   
   def enable
