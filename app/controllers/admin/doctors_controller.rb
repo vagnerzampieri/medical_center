@@ -3,48 +3,28 @@ class Admin::DoctorsController < ApplicationController
 	respond_to :html, :xml, :js
 	
   def index
-    @doctors = Doctor.order('name ASC')
+    @doctors = Doctor.order 'name ASC'
     
     respond_with @doctors
   end
   
   def new
     @doctor = Doctor.new
-    @specialties = Specialty.order('name ASC')
-    @states = State.order('name ASC')
+    @specialties = Specialty.order 'name ASC'
+    @states = State.order 'name ASC'
+    @health_plans = HealthPlan.where('id > 1').order('name ASC')
     
     respond_with @doctor
   end
   
   def create
-    @doctor = Doctor.new(params[:doctor])
+    @doctor = Doctor.new params[:doctor]
     
     respond_to do |format|
       if @doctor.save
-        specialties = params[:specialty]
-        specialties.each_pair do |key, value|
-          if value == "1"
-            DoctorSpecialty.create(
-              :servant_id => @doctor.id,
-              :specialty_id => key
-            )
-          end
-        end
-        
-        user = User.create(
-          :name => @doctor.name,
-          :login => @doctor.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
-          :email => @doctor.email,
-          :password => @doctor.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
-          :password_confirmation => @doctor.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
-          :enabled => 1,
-          :can_login => 1
-        )        
-        
-        role = Role.find 6
-        user.roles << role
-        user.servant_id = @doctor.id
-        user.save
+        @doctor.save_doctor_specialties params[:specialty]
+        @doctor.save_doctor_health_plans params[:health_plan]
+        @doctor.save_users 
         
         format.html { redirect_to(admin_doctors_url, :notice => 'Doctor was successfully created.') }
         format.xml  { render :xml => @doctor, :status => :created, :location => @doctor }
@@ -57,34 +37,33 @@ class Admin::DoctorsController < ApplicationController
   end
   
   def show
-    @doctor = Doctor.find(params[:id])
+    @doctor = Doctor.find params[:id]
     
     respond_with @doctor
   end
   
   def edit
-    @doctor = Doctor.find(params[:id])
-    @specialties = Specialty.order('name ASC')
-    @states = State.order('name ASC')
+    @doctor = Doctor.find params[:id]
+    @specialties = Specialty.order 'name ASC'
+    @states = State.order 'name ASC'
+    @health_plans = HealthPlan.where('id > 1').order('name ASC')
     
     respond_with @doctor
   end
 
   def update
-    @doctor = Doctor.find(params[:id])
+    @doctor = Doctor.find params[:id]
     
     specialty_clean = "DELETE FROM doctor_specialties WHERE servant_id = #{@doctor.id}"
     ActiveRecord::Base::connection().update(specialty_clean)
+
+    @doctor.save_doctor_specialties params[:specialty]
+        
     
-    specialties = params[:specialty]
-    specialties.each_pair do |key, value|
-      if value == "1"
-        DoctorSpecialty.create(
-          :servant_id => @doctor.id,
-          :specialty_id => key
-        )
-      end
-    end
+    health_plan_clean = "DELETE FROM doctor_health_plans WHERE servant_id = #{@doctor.id}"
+    ActiveRecord::Base::connection().update(health_plan_clean)
+
+    @doctor.save_doctor_health_plans params[:health_plan]
 
     respond_to do |format|
       if @doctor.update_attributes(params[:doctor])        
@@ -101,11 +80,14 @@ class Admin::DoctorsController < ApplicationController
   def destroy
     @doctor = Doctor.find(params[:id]).destroy
 		
-    respond_with @doctor
+    respond_to do |format|
+      format.html { redirect_to(admin_doctors_url) }
+      format.xml  { head :ok }
+    end
   end
   
   def enable
-    @doctor = Doctor.find(params[:id])
+    @doctor = Doctor.find params[:id]
     @doctor.enabled = (@doctor.enabled) ? false : true
 
     if @doctor.save
@@ -114,7 +96,7 @@ class Admin::DoctorsController < ApplicationController
       flash[:error] = I18n.t(:doctor_enable_error)
     end
     
-    redirect_to(admin_doctors_path)
+    redirect_to admin_doctors_path
     
   end
 
