@@ -12,7 +12,7 @@ class Admin::DoctorsController < ApplicationController
     @doctor = Doctor.new
     @specialties = Specialty.order 'name ASC'
     @states = State.order 'name ASC'
-    @health_plans = HealthPlan.where('id > 1').order('name ASC')
+    @health_plans = HealthPlan.where('id > 1 AND enabled = 1').order('name ASC')
     
     respond_with @doctor
   end
@@ -46,7 +46,7 @@ class Admin::DoctorsController < ApplicationController
     @doctor = Doctor.find params[:id]
     @specialties = Specialty.order 'name ASC'
     @states = State.order 'name ASC'
-    @health_plans = HealthPlan.where('id > 1').order('name ASC')
+    @health_plans = HealthPlan.where('id > 1 AND enabled = 1').order('name ASC')
     
     respond_with @doctor
   end
