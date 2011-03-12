@@ -77,24 +77,21 @@
     <td><%= f.text_field :crm %></td>
   </tr>
   <tr>
-    <th><%= f.label I18n.t :specialty %>:</th>  
-  </tr>  
+    <td><%= f.label I18n.t :specialty %>:</td>  
+    <td>  
   <% @specialties.each do |specialty| %>
-  <tr>
-    <td>
       <%= check_box :specialty, "#{specialty.id}" %><%= specialty.name %>
-    </td>
-  </tr>
+    <br/>
   <% end %>
+    </td>
   <tr>
-    <th><%= f.label I18n.t :health_plan %>:</th>  
-  </tr>  
-  <% @health_plans.each do |health_plan| %>
-  <tr>
+    <td><%= f.label I18n.t :health_plan %>:</td>  
     <td>
-      <%= check_box :health_plan, "#{health_plan.id}" %><%= health_plan.name %>
+    <% @health_plans.each do |health_plan| %>    
+      <%= check_box :health_plan, "#{health_plan.id}" %><%= health_plan.name %>    
+      <br/>
+    <% end %>
     </td>
-  </tr>
-  <% end %>
+  </tr>  
   
 </table>
