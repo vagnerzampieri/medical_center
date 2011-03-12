@@ -1,7 +1,8 @@
-Foi feito uma nova forma para cadastrar as especialidades de um médico, mas na hora de editar não está trazendo os dados correspondentes, e eu não gravo uma posição(number). Ver a possibilidade de fazer com o simple form. Existem comentários em _form.html.erb e doctors_helper.rb 
+Em consultas consigo pegar o id da especialidade com jquery, mas falta informações para eu completar o script.
 
-URGENTE: Verificar quantos planos de saúde um médico pode ter
+Foi feito uma nova forma para cadastrar as especialidades de um médico, mas na hora de editar não está trazendo os dados correspondentes. Ver a possibilidade de fazer com o simple form. 
 
+URGENTE: Enfermagem tem que criar uma tabela com as especialidades e um relacionamento.
 Em vários cadastros futuros precisará de conhecimento profundo de ajax.
 
 Fazer teste:
