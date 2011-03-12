@@ -20,6 +20,8 @@ class Admin::AdministrativesController < ApplicationController
     
     respond_to do |format|
       if @administrative.save
+        @administrative.save_users
+        
         format.html { redirect_to(admin_administratives_url, :notice => 'Administrative was successfully created.') }
         format.xml  { render :xml => @administrative, :status => :created, :location => @administrative }
       else

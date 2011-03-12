@@ -22,5 +22,22 @@ class Patient < ActiveRecord::Base
 	validates_length_of :area_code, :is => 2, :allow_blank => true
   validates_length_of :telephone, :is => 8, :allow_blank => true
   validates_length_of :mobile, :is => 8, :allow_blank => true
+  
+  def save_users
+    user = User.create(
+      :name => self.name,
+      :login => self.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
+      :email => self.email,
+      :password => self.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
+      :password_confirmation => self.name.mb_chars.normalize(:kd).downcase.gsub(' ', '').gsub(/\W/,''),
+      :enabled => 1,
+      :can_login => 1
+      )        
+        
+    role = Role.find 6
+    user.roles << role
+    user.servant_id = self.id
+    user.save
+  end
 
 end
