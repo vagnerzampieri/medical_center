@@ -6,37 +6,37 @@ describe Patient do
   end
   
   it 'should be not created without name' do
-    @patient.name = ''
+    @patient.name = nil
     @patient.should_not be_valid
   end
   
   it 'should be not created without address' do
-    @patient.address = ''
+    @patient.address = nil
     @patient.should_not be_valid
   end
   
   it 'should be not created without number' do
-    @patient.number = ''
+    @patient.number = nil
     @patient.should_not be_valid
   end
   
   it 'should be not created without district' do
-    @patient.district = ''
+    @patient.district = nil
     @patient.should_not be_valid
   end
   
   it 'should be not created without email' do
-    @patient.email = ''
+    @patient.email = nil
     @patient.should_not be_valid
   end
   
   it 'should be not created without city' do
-    @patient.city = ''
+    @patient.city = nil
     @patient.should_not be_valid
   end
   
   it 'should be not created without cpf' do
-    @patient.cpf = ''
+    @patient.cpf = nil
     @patient.should_not be_valid
   end
   
@@ -51,7 +51,7 @@ describe Patient do
   end
   
   it 'should be not created without zip code' do
-    @patient.zip_code = ''
+    @patient.zip_code = nil
     @patient.should_not be_valid
   end
   
@@ -66,7 +66,7 @@ describe Patient do
   end
   
   it 'should be created without area code' do
-    @patient.area_code = ''
+    @patient.area_code = nil
     @patient.should be_valid
   end
   
@@ -81,7 +81,7 @@ describe Patient do
   end
   
   it 'should be created without telephone' do
-    @patient.telephone = ''
+    @patient.telephone = nil
     @patient.should be_valid
   end
   
@@ -96,7 +96,7 @@ describe Patient do
   end
   
   it 'should be created without mobile' do
-    @patient.mobile = ''
+    @patient.mobile = nil
     @patient.should be_valid
   end
   
@@ -111,7 +111,7 @@ describe Patient do
   end
   
   it 'should be not created without state' do
-    @patient.state_id = ''
+    @patient.state_id = nil
     @patient.should_not be_valid
   end
   
@@ -123,7 +123,7 @@ describe Patient do
   end
   
   it 'should be not created without room' do
-    @patient.room_id = ''
+    @patient.room_id = nil
     @patient.should_not be_valid
   end
   
@@ -135,7 +135,7 @@ describe Patient do
   end
   
   it 'should be not created without health plan' do
-    @patient.health_plan_id = ''
+    @patient.health_plan_id = nil
     @patient.should_not be_valid
   end
   

@@ -6,22 +6,22 @@ describe User do
   end
   
   it "should be not created without name" do
-    @user.name = '' 
+    @user.name = nil 
     @user.should_not be_valid
   end
   
   it 'should be not created without login' do
-    @user.login = ''
+    @user.login = nil
     @user.should_not be_valid
   end
   
   it 'should be not created without email' do
-    @user.email = ''
+    @user.email = nil
     @user.should_not be_valid
   end
   
   it 'should be not created without password' do
-    @user.password = ''
+    @user.password = nil
     @user.should_not be_valid
   end
   
