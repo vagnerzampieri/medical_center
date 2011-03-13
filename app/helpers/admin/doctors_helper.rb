@@ -1,14 +1,5 @@
 module Admin::DoctorsHelper
-  
-  def select_specialty(number)
-    @doctor.doctor_specialties.each do |doctor|
-      if doctor.number == number
-        @specialty_id = doctor.specialty_id
-      end
-    end
-    @specialty_id
-  end
-  
+ 
   def show_specialty(doctor)
     specialties_td = "<td>"
     doctor.specialties.each do |specialty|
@@ -17,6 +8,16 @@ module Admin::DoctorsHelper
     end
     specialties_td << "</td>"
     raw specialties_td
+  end
+  
+  def show_health_plan(doctor)
+    health_plans_td = "<td>"
+    doctor.health_plan.each do |health_plan|
+      health_plans_td << health_plan.name
+      health_plans_td << "<br/>"
+    end
+    health_plans_td << "</td>"
+    raw health_plans_td
   end
   
 end

@@ -3,11 +3,9 @@ class CreateDoctorSpecialties < ActiveRecord::Migration
     create_table :doctor_specialties, :id => false do |t|
       t.references :servant
       t.references :specialty
-      t.integer :number
     end
     add_index :doctor_specialties, :servant_id
     add_index :doctor_specialties, :specialty_id
-    add_index :doctor_specialties, :number
   end
 
   def self.down

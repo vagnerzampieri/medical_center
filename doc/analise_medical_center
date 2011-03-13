@@ -1,4 +1,16 @@
-URGENTE: Verificar quantos planos de saúde um médico pode ter
+Em consultas consigo pegar o id da especialidade com jquery, mas falta informações para eu completar o script.
+
+Foi feito uma nova forma para cadastrar as especialidades de um médico, mas na hora de editar não está trazendo os dados correspondentes. Ver a possibilidade de fazer com o simple form. 
+
+URGENTE: Enfermagem tem que criar uma tabela com as especialidades e um relacionamento.
+Em vários cadastros futuros precisará de conhecimento profundo de ajax.
+
+Fazer teste:
+ajax
+jquery 1.5
+calendar helper
+pdfkit
+algum tipo de visualizador gráfico
 
 Site Medical Center:
 rails 3, ruby 1.9.2, HTML5, CSS3, JQuery

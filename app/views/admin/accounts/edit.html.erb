@@ -1,0 +1,50 @@
+				<article class="article">
+         	<h2><%= I18n.t :edit_user_register %>s</h2>
+
+          <div class="line"></div>    
+
+          <div class="articleBody clear"> 
+            <p>Editar conta de <%= link_to current_user.email, edit_user_admin_account_path(current_user.id) %></p>
+            
+          	<%= form_for(@user, :as => :user, :url => admin_account_path, :html => {:method => :put, :id => "form", :class => "form"}) do |f|%>
+          		
+          		<table>
+                <tr>
+                  <td class="last"><%= f.label I18n.t :name %></td>
+                  <td class="middle"><%= f.text_field :name %></td>
+                </tr>
+                <tr>
+                  <td class="last"><%= f.label I18n.t :email %></td>
+                  <td class="middle"><%= f.text_field :email %></td>
+                </tr>
+                <tr>
+                  <td class="last"><%= f.label I18n.t :login %></td>
+                  <td class="middle"><%= f.text_field :login %></td>
+                </tr>
+                <tr>
+                  <td class="last"><%= f.label :password, f.object.new_record? ? nil : "Change password" %></td>
+                  <td class="middle"><%= f.password_field :password %></td>
+                </tr>
+                <tr>
+                  <td class="last"><%= f.label I18n.t :password_confirmation %></td>
+                  <td class="middle"><%= f.password_field :password_confirmation %></td>
+                </tr>
+                <tr>
+                  <td class="last"><%= f.label I18n.t :can_login %></td>
+                  <td class="middle"><%= f.check_box :can_login %></td>
+                </tr>
+                <tr>
+                  <td class="last"><%= f.label I18n.t :enabled %></td>
+                  <td class="middle"><%= f.check_box :enabled %></td>
+                </tr>
+                <tr>
+                  <td class="last"><%= f.label I18n.t :roles %></td>
+                  <td class="middle"><%= collection_select(:role, '1', @roles, :id, :name, {:selected => @selected} ) %></td>
+                </tr>
+              </table>
+          		
+          		<%= submit_tag I18n.t :update %>
+        			<%= link_to I18n.t(:cancel), admin_users_path%>
+		        <% end %>
+          </div>
+        </article>

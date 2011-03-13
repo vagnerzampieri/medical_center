@@ -78,18 +78,20 @@
   </tr>
   <tr>
     <td><%= f.label I18n.t :specialty %>:</td>  
-    <!-- revisar -->
-    <td>
-      <% specialty_id = select_specialty(1) if params[:action] == 'edit' %>
-      <%= collection_select(:specialty, '1', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
-      <% specialty_id = select_specialty(2) if params[:action] == 'edit' %>
-      <%= collection_select(:specialty, '2', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
-      <% specialty_id = select_specialty(3) if params[:action] == 'edit' %>
-      <%= collection_select(:specialty, '3', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
-      <% specialty_id = select_specialty(4) if params[:action] == 'edit' %>
-      <%= collection_select(:specialty, '4', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
-      <% specialty_id = select_specialty(5) if params[:action] == 'edit' %>
-      <%= collection_select(:specialty, '5', @specialties, :id, :name, {:prompt => 'Selecione', :selected => specialty_id} ) %></br>
+    <td>  
+  <% @specialties.each do |specialty| %>
+      <%= check_box :specialty, "#{specialty.id}" %><%= specialty.name %>
+    <br/>
+  <% end %>
     </td>
-  </tr>
+  <tr>
+    <td><%= f.label I18n.t :health_plan %>:</td>  
+    <td>
+    <% @health_plans.each do |health_plan| %>    
+      <%= check_box :health_plan, "#{health_plan.id}" %><%= health_plan.name %>    
+      <br/>
+    <% end %>
+    </td>
+  </tr>  
+  
 </table>

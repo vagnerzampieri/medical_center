@@ -10,6 +10,12 @@ RubyMedicalCenter::Application.routes.draw do
 		    get :enable
       end
     end
+    
+    resources :accounts do
+      member do
+        get :edit_user
+      end
+    end
 		
 		resources :patients do
 		  member do
@@ -41,8 +47,7 @@ RubyMedicalCenter::Application.routes.draw do
       end
     end
     
-    resources :agendas do
-    end
+    resources :agendas
     
     resources :consultations do
       member do
