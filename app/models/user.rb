@@ -13,4 +13,11 @@ class User < ActiveRecord::Base
   attr_accessible :name, :login, :enabled, :can_login, :email, :password, :password_confirmation, :servant_id, :patient_id
   
   validates_presence_of :name, :login
+  
+  def save_role(role)
+    role.each_value do |r|      
+      rl = Role.find r
+      self.roles << rl
+    end
+  end
 end
