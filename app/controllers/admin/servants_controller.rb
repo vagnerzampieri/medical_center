@@ -3,7 +3,7 @@ class Admin::ServantsController < ApplicationController
 	respond_to :html, :xml, :js
 	
   def index
-    @servants = Servant.order('name ASC')
+    @servants = Servant.order 'name ASC'
     
     respond_with @servants
   end

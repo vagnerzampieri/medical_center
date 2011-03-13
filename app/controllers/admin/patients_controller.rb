@@ -28,7 +28,7 @@ class Admin::PatientsController < ApplicationController
         format.html { redirect_to(admin_patients_url, :notice => 'Patient was successfully created.') }
         format.xml  { render :xml => @patient, :status => :created, :location => @patient }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @patient.errors, :status => :unprocessable_entity }
       end
     end
@@ -58,7 +58,7 @@ class Admin::PatientsController < ApplicationController
         format.html { redirect_to(admin_patients_url, :notice => 'Patient was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml  { render :xml => @patient.errors, :status => :unprocessable_entity }
       end
     end
@@ -69,19 +69,19 @@ class Admin::PatientsController < ApplicationController
     Patient.find(params[:id]).destroy
 		
     respond_to do |format|
-      format.html { redirect_to(admin_patients_url) }
+      format.html { redirect_to admin_patients_url }
       format.xml  { head :ok }
     end
   end
   
   def enable
-    @patient = Patient.find(params[:id])
+    @patient = Patient.find params[:id]
     @patient.enabled = (@patient.enabled) ? false : true
 
     if @patient.save
       flash[:success] = (@patient.enabled) ? I18n.t(:patient_enabled) : I18n.t(:patient_disabled)
     else
-      flash[:error] = I18n.t(:patient_enable_error)
+      flash[:error] = I18n.t :patient_enable_error
     end
     
     redirect_to admin_patients_path

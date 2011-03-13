@@ -29,7 +29,7 @@ class Admin::DoctorsController < ApplicationController
         format.html { redirect_to(admin_doctors_url, :notice => 'Doctor was successfully created.') }
         format.xml  { render :xml => @doctor, :status => :created, :location => @doctor }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @doctor.errors, :status => :unprocessable_entity }
       end
     end
@@ -66,11 +66,11 @@ class Admin::DoctorsController < ApplicationController
     @doctor.save_doctor_health_plans params[:health_plan]
 
     respond_to do |format|
-      if @doctor.update_attributes(params[:doctor])        
+      if @doctor.update_attributes params[:doctor]
         format.html { redirect_to(admin_doctors_url, :notice => 'Doctor was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml  { render :xml => @doctor.errors, :status => :unprocessable_entity }
       end
     end
@@ -81,7 +81,7 @@ class Admin::DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id]).destroy
 		
     respond_to do |format|
-      format.html { redirect_to(admin_doctors_url) }
+      format.html { redirect_to admin_doctors_url }
       format.xml  { head :ok }
     end
   end
@@ -93,7 +93,7 @@ class Admin::DoctorsController < ApplicationController
     if @doctor.save
       flash[:success] = (@doctor.enabled) ? I18n.t(:doctor_enabled) : I18n.t(:doctor_disabled)
     else
-      flash[:error] = I18n.t(:doctor_enable_error)
+      flash[:error] = I18n.t :doctor_enable_error
     end
     
     redirect_to admin_doctors_path
