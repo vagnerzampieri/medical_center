@@ -13,7 +13,7 @@
   	<section class="page">
   		<info>
   			<% if user_signed_in? %>
-          <h5><%= current_user.email %> - <%= link_to "sair", destroy_user_session_path %></h5>
+          <h5><%= link_to current_user.email, edit_admin_account_path(current_user.id) %> - <%= link_to "sair", destroy_user_session_path %></h5>
         <% end %>
   		</info>
   	

@@ -1,0 +1,19 @@
+				<article class="article">
+         	<h2><%= I18n.t :show_user_register %></h2>
+
+          <div class="line"></div>    
+
+          <div class="articleBody clear">
+            <p>Editar conta de <%= link_to current_user.email, edit_user_admin_account_path(current_user.id) %></p> 
+          	<table>
+							<tr>
+								<td class="last"><%= I18n.t :name %></td>
+								<td class="middle"><%= @user.name %></td>
+							</tr>
+							<tr>
+								<td class="last"><%= I18n.t :email %></td>
+								<td class="middle"><%= @user.email %></td>
+							</tr>
+						</table>
+          </div>
+        </article>
