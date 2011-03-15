@@ -1,9 +1,9 @@
 RubyMedicalCenter::Application.routes.draw do
   devise_for :users
 
+  resources :dashboard, :path => "admin/dashboard"
+
 	namespace :admin do
-	  resources :home do
-    end
     
 		resources :users do
 		  member do
