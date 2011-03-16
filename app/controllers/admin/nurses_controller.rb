@@ -11,12 +11,14 @@ class Admin::NursesController < ApplicationController
   def new
     @nurse = Nurse.new
     @states = State.order 'name ASC'
+    @specifications = Specification.where :enabled => 1
     
     respond_with @nurse
   end
   
   def create
     @nurse = Nurse.new params[:nurse]
+    @nurse.save_specifications params[:specification]
     
     respond_to do |format|
       if @nurse.save
@@ -45,6 +47,11 @@ class Admin::NursesController < ApplicationController
 
   def update
     @nurse = Nurse.find params[:id]
+    
+    specification_clean = "DELETE FROM nurses_specifications WHERE user_id = #{@nurse.id}"
+    ActiveRecord::Base::connection().update(specification_clean)
+
+    @nurse.save_specifications params[:specification]
 
     respond_to do |format|
       if @nurse.update_attributes params[:nurse]
@@ -68,7 +75,7 @@ class Admin::NursesController < ApplicationController
   end
   
   def enable
-    @nurse = Nurse.find(params[:id])
+    @nurse = Nurse.find params[:id]
     @nurse.enabled = (@nurse.enabled) ? false : true
 
     if @nurse.save

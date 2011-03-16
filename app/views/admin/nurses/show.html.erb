@@ -75,6 +75,10 @@
                 <td><%= I18n.t :enabled %>:</td>
                 <td><%= show_enabled_icon(@nurse.enabled) %></td>
               </tr>
+              <tr>
+                <td><%= I18n.t :specialty %>:</td>
+                <%= show_specification(@nurse)%>
+              </tr>
             </table>
           </div>
         </article> 

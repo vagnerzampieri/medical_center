@@ -1,6 +1,6 @@
 class NursesSpecifications < ActiveRecord::Migration
   def self.up
-    create_table :nurses_specifications do |t|
+    create_table :nurses_specifications, :id => false do |t|
       t.references :nurse
       t.references :specification
     end

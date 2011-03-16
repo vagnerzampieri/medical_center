@@ -72,4 +72,12 @@
     <td><%= f.label I18n.t :enabled %>:</td>
     <td><%= f.check_box :enabled %></td>
   </tr>
+  <tr>
+    <td><%= f.label I18n.t :specialty %>:</td>
+    <td>
+    <% @specifications.each do |specification| %>
+      <%= check_box :specification, "#{specification.id}" %><%= specification.name %>
+    <% end %>
+    </td>
+  </tr>
 </table>

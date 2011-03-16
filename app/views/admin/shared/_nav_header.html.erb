@@ -1,20 +1,20 @@
 				<nav class="clear">
         	<ul>
-        	  <% if has_access?('admin/home/index') %>
-        	  <li><%= link_to I18n.t(:home), :controller => :home %></li>
+        	  <% if has_access?('dashboard/index') %>
+        	  <li><%= link_to I18n.t(:dashboard), dashboard_index_path %></li>
         	  <% end %>
         	  <% if has_access?('admin/agendas/index') %>
-            <li><%= link_to I18n.t(:agendas), :controller => :agendas %></li>
+            <li><%= link_to I18n.t(:agendas), admin_agendas_path %></li>
             <% end %>
             <li><a href="#">Financeiro</a></li>
             <% if has_access?('admin/servants/index') %>
-            <li><%= link_to I18n.t(:servants), :controller => :servants %></li>
+            <li><%= link_to I18n.t(:servants), admin_servants_path %></li>
             <% end %>
             <% if has_access?('admin/patients/index') %>
-            <li><%= link_to I18n.t(:patients), :controller => :patients %></li>
+            <li><%= link_to I18n.t(:patients), admin_patients_path %></li>
             <% end %>
             <% if has_access?('admin/users/index') %>
-            <li><%= link_to I18n.t(:users), :controller => :users %></li>
+            <li><%= link_to I18n.t(:users), admin_users_path %></li>
             <% end %>
             <li><a href="#">Sobre</a></li>
           </ul>
