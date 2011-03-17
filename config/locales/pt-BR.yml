@@ -12,6 +12,7 @@ pt-BR:
   roles: 'Regras'
   home: 'Home'
   type: 'Tipo'
+  dashboard: 'Dashboard'
   
   # patients
   
@@ -30,6 +31,8 @@ pt-BR:
   mobile: 'Celular'
   number: 'Número'
   complement: 'Complemento'
+  health_plan: 'Plano de Saúde'
+  room: 'Quarto'
   
   patients: 'Pacientes'
   new_patient: 'Novo Paciente'

@@ -11,6 +11,7 @@ en:
   create: 'Create'
   home: 'Home'
   type: 'Type'
+  dashboard: 'Dashboard'
   
   # patients
   
@@ -29,6 +30,8 @@ en:
   mobile: 'Mobile'
   number: 'Number'
   complement: 'Complement'
+  health_plan: 'Health Plan'
+  room: 'Room'
   
   new_patient: 'New Patient'
   new_patient_register: 'New Patient Register'
