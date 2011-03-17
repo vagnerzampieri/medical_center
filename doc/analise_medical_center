@@ -4,27 +4,137 @@ Rails3, Ruby 1.9.2, HTML5, CSS3, JQuery
 Medical Center é um sistema no qual o objetivo é dar suporte total a uma clínica médica, tanto para o cadastro de paciente, marcação de consultas, cadastro de funcionários e organização interna da empresa.
 
 Menu
+  Dashboard:
+    
+    É a página inicial do sistema, dependendo da regra que o usuário logado estiver, essa página mudará com informações pertinentes a ele.
   
+  Pacientes:
+    
+    Especificação:
+      Visualização de todos os pacientes, ativação, desativação de paciente, cadastro, edição, visualização de um paciente específico, exclusão e cadastro de um usuário para acesso ao sistema.
+    
+    Campos do cadastro de paciente.
+      Nome: 	
+      Nascimento: 	
+      Sexo:
+      Cpf: 	
+      Plano de saúde: 	
+      Quarto: 	
+      Estado: 	
+      Endereço: 	
+      Número: 	
+      Complemento: 	
+      Cep: 	
+      Bairro: 	
+      Cidade: 	
+      Telefone: 	
+      Celular: 	
+      E-mail: 	
+      Ativo:
+    
+
+    
+    Funcionários:
+    
+      Especificação: 
+        Existem 3 tipos de funcionários para serem cadastrados, é criado um usuário automaticamente para acesso do sistema. Na página principal de funcionários é mostrado uma listagem de todos eles.
+        
+        Médicos:
+          Especificação:
+            Visualização de todos os médicos, ativação, desativação de médico, cadastro, edição, visualização de um médico específico, exclusão e cadastro de um usuário para acesso ao sistema.
+          
+          Campos de cadastro de médico:
+            Nome: 	
+            Nascimento: 	
+            Sexo: 	
+            Cpf: 	
+            Estado: 	
+            Endereço: 	
+            Número: 	
+            Complemento: 	
+            Cep: 	
+            Bairro: 	
+            Cidade: 	
+            Telefone: 	
+            Celular: 	
+            E-mail: 	
+            Ativo: 	
+            Crm: 	
+            Especialidade:
+            Plano de saúde:
+          
+        Enfermagem:
+          Especificação:
+            Visualização de todos as enfermeiros, ativação, desativação de enfermeiros, cadastro, edição, visualização de um enfermeiro específico, exclusão e cadastro de um usuário para acesso ao sistema.
+            
+          Campos de cadastro de enfermeiro:
+            Nome: 	
+            Nascimento: 	
+            Sexo: 	
+            Cpf: 	
+            Estado: 	
+            Endereço: 	
+            Número: 	
+            Complemento: 	
+            Cep: 	
+            Bairro: 	
+            Cidade: 	
+            Telefone: 	
+            Celular: 	
+            E-mail: 	
+            Ativo: 	
+            Especialidade:
+            
+        Administrativo:
+          Especificação:
+            Visualização de todos da administração, ativação, desativação de alguém do administrativo, cadastro, edição, visualização de alguém do administrativo específico, exclusão e cadastro de um usuário para acesso ao sistema.
+            
+          Campos de cadastro do administrativo:
+            Nome: 	
+            Nascimento: 	
+            Sexo: 	
+            Cpf: 	
+            Estado: 	
+            Endereço: 	
+            Número: 	
+            Complemento: 	
+            Cep: 	
+            Bairro: 	
+            Cidade: 	
+            Telefone: 	
+            Celular: 	
+            E-mail: 	
+            Ativo: 	  
+                        
+    Usuário:
+      Especificação:
+        Visualização de todos os usuários, ativação, desativação de usuário, cadastro, edição, visualização de um médico específico e exclusão.
+              
+      Campos cadastrados automaticamente para usuário 
+        Nome:
+        E-mail:
+        Login:
+        Password:
+        Confirmar Senha:
+        Pode efetuar login?:
+        Ativo:
+        Regras:
+        
+    Agendas:
+      Especificação:
+        Dependendo da regra selecionada é modificado a forma e a função da agenda, ela é um menu de entrada para outros submenus.
+      
+      Consultas:
+        Especificação:
+          Cadastra uma consulta.
+          
+Regras: 
   Paciente:
-    
-    Especificação: Ao cadastrar um paciente é criado um usuário para o acesso dele ao sistema. O paciente terá acesso restrito a áreas que forem pertinentes ao seu acesso. 
-    
-    Áreas de acesso: Conta, Agenda específica de paciente, marcação de Consultas.
-    
-    Nome: 	
-    Nascimento: 	
-    Sexo:
-    Cpf: 	
-    Plano de saúde: 	
-    Quarto: 	
-    Estado: 	
-    Endereço: 	
-    Número: 	
-    Complemento: 	
-    Cep: 	
-    Bairro: 	
-    Cidade: 	
-    Telefone: 	
-    Celular: 	
-    E-mail: 	
-    Ativo:
+    Especificação: 
+      Para um paciente ter acesso ao sistema é criado por um funcionário do administrativo um cadastro de um paciente, ao cadastrar ele é criado um usuário para o acesso dele ao sistema. O paciente terá acesso restrito a áreas que forem pertinentes ao seu acesso. 
+        
+    Áreas de acesso: 
+      Dashboard, Conta, Agenda específica de paciente, marcação de Consultas.
+        
+    Dashboard: 
+      Mostra a consulta que estiver marcada que ainda não foi realizada. E dados ainda serem pensados.
