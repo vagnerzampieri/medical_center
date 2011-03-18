@@ -4,6 +4,8 @@ Foi feito uma nova forma para cadastrar as especialidades de um médico, mas na 
 
 Em vários cadastros futuros precisará de conhecimento profundo de ajax.
 
+Será interessante ter um histórico do paciente.
+
 Fazer teste:
 ajax
 jquery 1.5

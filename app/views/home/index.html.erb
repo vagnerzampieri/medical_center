@@ -2,7 +2,7 @@
 	<% if user_signed_in? %>
     <info>
       <h5><%= current_user.email %> <%= link_to "sair", destroy_user_session_path %></h5>
-      <%= link_to "admin", admin_home_index_path %>
+      <%= link_to "admin", dashboard_index_path %>
     </info>
   <% else %>
     <h3>área reservada</h3>
