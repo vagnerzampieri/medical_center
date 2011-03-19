@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
       self.roles << rl
     end
   end
+  
+  def self.can_login
+    '/users/sign_in'
+  end
 end

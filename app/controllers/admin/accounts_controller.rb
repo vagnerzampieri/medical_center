@@ -1,6 +1,7 @@
 class Admin::AccountsController < ApplicationController
   layout 'admin/application'
 	respond_to :html, :xml, :js
+	before_filter :admin?
 	
 	def show
 		@user = User.find params[:id]

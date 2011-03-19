@@ -126,9 +126,66 @@ Menu
       
       Consultas:
         Especificação:
-          Cadastra uma consulta.
+          Cadastra uma consulta, visualiza todas as consultas, marca as consultas que já aconteceram, edita, desmarca.
+          
+      Reunião:
+        Especificação:
+          Cadastra reuniões internas da empresa selecinando quais os funcionários estarão nesta reunião, e o aviso será dado mostrando no dashboard do funcionário selecionado.
+          
+    Financeiro:
+      Especificação:
+        Área destinada a todas a parte de finanças da clínica.
+        
+      Relatórios:
+        Especificação:
+          Fluxo de caixa, inadimplentes, contas para pagar e contas para receber.
+          
+      Contas a pagar:
+        Especificação:
+          Visualização de todas as contas a serem pagas, ativação, desativação, cadastro, edição, visualização de uma conta específica e exclusão.
+          
+      Contas a receber:
+        Especificação:
+          Irá pegar dados da consulta para guardar em uma tabela e depois mostrar.
+    
+    Histórico:
+      Especificação:
+        Todo o histórico de um paciente será gravado nesta área, onde qualquer médico poderá verificar apenas fazendo uma consulta.
+    
+    Sobre:
+      Especificação:
+        Sobre o sistema, versão, criadores. 
           
 Regras: 
+  Visitante:
+    Especificação:
+      Só vê a home do sistema.
+      
+  Desenvolvedor:
+    Especificação:
+      Tem acesso total ao sistema.
+      
+  Administrativo:
+    Especificação:
+      Faz toda a parte de cadastros de usuários no sistema, da parte financeira e agenda.
+      
+    Dashboard:
+      Contas a serem pagas, inadimplentes.
+      
+  Médico:
+    Especificação:
+      Tem acesso a agenda, ao histórico dos pacientes.
+
+    Dashboard:
+      Mostra as consultas que tem agendada.
+            
+  Enfermagem:
+    Especificação:
+      Tem acesso a agenda, ao histórico dos pacientes.
+    
+    Dashboard:
+      Mostra as consultas que tem agendada.   
+  
   Paciente:
     Especificação: 
       Para um paciente ter acesso ao sistema é criado por um funcionário do administrativo um cadastro de um paciente, ao cadastrar ele é criado um usuário para o acesso dele ao sistema. O paciente terá acesso restrito a áreas que forem pertinentes ao seu acesso. 
@@ -138,3 +195,5 @@ Regras:
         
     Dashboard: 
       Mostra a consulta que estiver marcada que ainda não foi realizada. E dados ainda serem pensados.
+      
+

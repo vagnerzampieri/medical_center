@@ -4,7 +4,7 @@ class AddPermissions < ActiveRecord::Migration
     remove_column :permissions, :name
     remove_column :permissions, :description
     
-    all_controllers = %w(ApplicationController HomeController Admin::AdministrativesController Admin::DoctorsController Admin::NursesController Admin::PatientsController Admin::ServantsController Admin::UsersController)
+    all_controllers = %w(HomeController Admin::AdministrativesController Admin::DoctorsController Admin::NursesController Admin::PatientsController Admin::ServantsController Admin::UsersController)
     all_controllers.each do |contrs|
       cs = contrs.constantize
       cs.action_methods.each do |acts|
