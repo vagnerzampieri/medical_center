@@ -17,8 +17,10 @@ class ApplicationController < ActionController::Base
   end
   
   def skip_authorization?
-    flash[:alert] = "Você não está autorizado a acessar esta página."
-    redirect_to '/admin/dashboard'
+    unless current_user.id == DEVEL
+      flash[:alert] = "Você não está autorizado a acessar esta página."
+      redirect_to '/admin/dashboard'
+    end
   end
   
   def has_access?(authorization_path)
