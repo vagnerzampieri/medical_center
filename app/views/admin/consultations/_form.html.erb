@@ -3,7 +3,7 @@
     $('#some').hide(6);
     $('select').click(function(){
       $('option').click(function(){
-        alert($(this).val());
+        $('#teste').append('<p>'+ $(this).val() +'</p>');
       });
     });
   });
@@ -21,4 +21,6 @@
       <%= f.collection_select(:patient_id, @patients, :id, :name, {:prompt => 'Selecione'} ) %>
     </td>
   </tr>
+  <div id="teste">
+  </div>
 </table>
