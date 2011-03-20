@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 	layout 'admin/application'
 	respond_to :html, :xml, :js
-	before_filter :admin?, :skip_authorization?
+	before_filter :admin?, :check_authorization
 	
 	def index
 		@users = User.order 'name ASC'

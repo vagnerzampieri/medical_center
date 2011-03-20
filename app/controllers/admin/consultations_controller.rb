@@ -1,7 +1,7 @@
 class Admin::ConsultationsController < ApplicationController
   layout 'admin/application'
 	respond_to :html, :xml, :js
-	before_filter :admin?, :skip_authorization?
+	before_filter :admin?, :check_authorization
 	
   def index
     @consultations = Consultation.order 'consultation_date DESC'
