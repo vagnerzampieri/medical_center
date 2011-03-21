@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
   GUEST = 0
   DEVEL = 1
   
+  def admin?
+    unless user_signed_in?
+      redirect_to User.can_login
+    end    
+  end
+  
   def has_access?(authorization_path)
     check_authorization(authorization_path)
   end
@@ -19,8 +25,6 @@ class ApplicationController < ActionController::Base
       "/admin/dashboard"
     end
   end
-  
-  private
   
   def check_authorization(authorization_path = nil)
     if user_signed_in?
@@ -45,14 +49,15 @@ class ApplicationController < ActionController::Base
   end
   
   def validate_access_sytem(authorization_path)
-    required_permission = (authorization_path.nil?) ? "#{controller_path()}/#{action_name}" : authorization_path
-    granted_actions(required_permission)
+    required_permission = (authorization_path.nil?) ? "#{controller_path}/#{action_name}" : authorization_path
+    granted_actions required_permission
     
     @current_user.roles.detect {|role|
-      role.permissions.detect{|permission|
-        actual_controler_action = permission.controller.constantize.controller_path + '/' + permission.action
+      role.permissions.detect {|permission|
+        actual_controler_action = "#{permission.controller.constantize.controller_path}/#{permission.action}"
         if actual_controler_action == required_permission
-          session[:access] = {:user_id => @current_user.id,
+          session[:access] = {
+            :user_id => @current_user.id,
             :controller => controller_path,
             :action => action_name,
             :status => 1
@@ -60,7 +65,6 @@ class ApplicationController < ActionController::Base
           true
         else
           flash[:alert] = "Você não está autorizado a acessar esta página."
-          #redirect_to "/" if authorization_path.nil? or authorization_path.empty?
           false
         end
       }
@@ -69,7 +73,7 @@ class ApplicationController < ActionController::Base
   end
   
   def granted_actions(required_permission)
-    actions = [ '/',
+    actions = [ 'home/index',
                 'users/sign_in', 
                 'users/sign_out',
                 'users/password/new'
@@ -81,5 +85,6 @@ class ApplicationController < ActionController::Base
     end
     false
   end    
+  
 
 end

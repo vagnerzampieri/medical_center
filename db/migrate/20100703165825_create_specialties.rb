@@ -96,7 +96,7 @@ class CreateSpecialties < ActiveRecord::Migration
     Specialty.create(:id => 88, :name => 'Neurologia')
     Specialty.create(:id => 89, :name => 'Neurologia Pediátrica')
     Specialty.create(:id => 90, :name => 'Neurorradiologia')
-    Specialty.create(:id => 91, :name => 'utrição Parenteral e Enteral')
+    Specialty.create(:id => 91, :name => 'Nutrição Parenteral e Enteral')
     Specialty.create(:id => 92, :name => 'Nutrição Parenteral e Enteral Pediátrica')
     Specialty.create(:id => 93, :name => 'Nutrologia')
     Specialty.create(:id => 94, :name => 'Nutrologia Pediátrica')

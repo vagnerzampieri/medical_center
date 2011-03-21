@@ -1,3 +1,4 @@
+O sistema de permissionamento parece estar criado corretamente, porém falta as permissões para ser testado da forma correta.
 Em consultas consigo pegar o id da especialidade com jquery, mas falta informações para eu completar o script.
 
 Foi feito uma nova forma para cadastrar as especialidades de um médico, mas na hora de editar não está trazendo os dados correspondentes. Ver a possibilidade de fazer com o simple form. 

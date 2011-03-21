@@ -1,6 +1,7 @@
 class Admin::ConsultationsController < ApplicationController
   layout 'admin/application'
-	respond_to :html, :xml, :js
+	respond_to :html, :xml, :js, :json
+	before_filter :admin?, :check_authorization
 	
   def index
     @consultations = Consultation.order 'consultation_date DESC'
@@ -11,7 +12,15 @@ class Admin::ConsultationsController < ApplicationController
   def new
     @consultation = Consultation.new
     @specialties = Specialty.order 'name ASC'
-    @doctors = Doctor.order 'name ASC'
+    
+    if params[:specialty_id].present?
+      specialty = Specialty.find params[:specialty_id]
+      @doctors = []
+      specialty.doctor_specialties.each do |doctor|
+        @doctors << doctor
+      end    
+    end
+    #@doctors = Doctor.order 'name ASC'
     @patients = select_patient
     #@health_plans = @patients.health_plan.name
   end
