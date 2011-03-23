@@ -7,9 +7,6 @@ class ApplicationController < ActionController::Base
   before_filter :check_authorization
   helper_method :has_access?
   
-  GUEST = 0
-  DEVEL = 1
-  
   def admin?
     unless user_signed_in?
       redirect_to User.can_login
@@ -17,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
   
   def has_access?(authorization_path)
-    check_authorization(authorization_path)
+    check_authorization(authorization_path, redirect = false)
   end
   
   def after_sign_in_path_for(resource)
@@ -26,61 +23,64 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def check_authorization(authorization_path = nil)
+  def generate_cookie
+    session[:access] = {
+        :user_id => @current_user.id,
+        :controller => controller_path,
+        :action => action_name,
+        :status => 1
+      }
+  end
+  
+  def check_authorization(authorization_path = nil, redirect = true)
     if user_signed_in?
       @current_user = current_user
     else
       @current_user = User.find 0
     end
     
-    if @current_user.id == DEVEL
-      session[:access] = {
-        :user_id => @current_user.id,
-        :controller => controller_path,
-        :action => action_name,
-        :status => 1
-      }
-      true
-    elsif @current_user.id == GUEST
-      false
-    elsif @current_user.id > DEVEL
-      validate_access_sytem(authorization_path)
+    if @current_user.id == 1
+      generate_cookie
+      return true
     end
-  end
-  
-  def validate_access_sytem(authorization_path)
+    
     required_permission = (authorization_path.nil?) ? "#{controller_path}/#{action_name}" : authorization_path
-    granted_actions required_permission
+    
+    if granted_actions required_permission
+      return true
+    end
     
     @current_user.roles.detect {|role|
       role.permissions.detect {|permission|
-        actual_controler_action = "#{permission.controller.constantize.controller_path}/#{permission.action}"
-        if actual_controler_action == required_permission
-          session[:access] = {
-            :user_id => @current_user.id,
-            :controller => controller_path,
-            :action => action_name,
-            :status => 1
-          }
-          true
-        else
-          flash[:alert] = "Você não está autorizado a acessar esta página."
-          false
+        user_permissions = "#{permission.controller.constantize.controller_path}/#{permission.action}"
+        if user_permissions == required_permission
+          generate_cookie
+          return true
         end
       }
     }
     
+    generate_cookie
+    
+    if redirect == true
+      flash[:alert] = "Você não está autorizado a acessar esta página #{required_permission}."
+      redirect_to("/home/action_forbidden") if authorization_path.nil?
+    end
+    
+    return false
+    
   end
-  
+    
   def granted_actions(required_permission)
     actions = [ 'home/index',
-                'users/sign_in', 
-                'users/sign_out',
-                'users/password/new'
+                'home/action_forbidden',
+                'devise/sessions/new', 
+                'devise/sessions/destroy',
+                'devise/passwords/new'
               ]
     actions.each do |a|
       if required_permission == a
-        true
+        return true
       end
     end
     false
