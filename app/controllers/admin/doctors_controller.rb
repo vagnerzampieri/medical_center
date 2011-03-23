@@ -1,7 +1,7 @@
 class Admin::DoctorsController < ApplicationController
   layout 'admin/application'
 	respond_to :html, :xml, :js
-	before_filter :admin?, :check_authorization
+	before_filter :admin?
 	
   def index
     @doctors = Doctor.order 'name ASC'

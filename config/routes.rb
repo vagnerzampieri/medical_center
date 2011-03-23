@@ -57,6 +57,7 @@ RubyMedicalCenter::Application.routes.draw do
     
 	end	
 		
+  get "home/action_forbidden"
 	match 'home' => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
