@@ -1,37 +1,16 @@
 <script>
   $(document).ready(function(){
-    $('#some').hide(6);
-    $('select').click(function(){
-      $('option').click(function(){
-        var specialty = $(this).val();
-        $.ajax({
-          url: this.href,
-          type: 'get',
-          data: {specialty_id: specialty},
-          dataType: 'json',
-          //complete: function(request){
-            //$('#teste').append('<select id="doctor_specialty_id" name="doctor[specialty_id]"><select/\>');
-          //}
-          // código a ser executado se a requisição
-          // for executada com sucesso; a resposta
-          // é passada para a função
-          success : function(request) {
-            alert(request);
-          },
-          // código a ser executado se a requisição
-          // falhar. A requisição bruta e os códigos
-          // de statsus são passados para função
-          error : function(xhr, status) {
-            alert('Desculpa, aconteceu um problema!');
-          },
-          // Código a ser executado independetemente
-          // do sucesso ou falha
-          complete : function(xhr, status) {
-            alert('A requisição está completa!');
-          }
-
-        });
+    //$('#consultation_patient_id').hide(6);
+    $('#consultation_specialty_id').change(function(){
+      var specialty = $(this).val();
+        
+      $.ajax({
+        url: this.href,
+        type: 'get',
+        data: {specialty_id: specialty},
+        dataType: 'script'
       });
+
     });
   });
 </script>
@@ -42,12 +21,10 @@
       <%= f.collection_select(:specialty_id, @specialties, :id, :name, {:prompt => 'Selecione'} ) %>
     </td>
   </tr>
-  <tr id="some">
+  <tr id="preview">
     <td><%= f.label I18n.t :patient %>:</td>
     <td>
-      <%= f.collection_select(:patient_id, @patients, :id, :name, {:prompt => 'Selecione'} ) %>
+      <%#= f.collection_select(:patient_id, @patients, :id, :name, {:prompt => 'Selecione'} ) %>
     </td>
   </tr>
-  <div id="teste">
-  </div>
 </table>
