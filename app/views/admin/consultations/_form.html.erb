@@ -3,7 +3,6 @@
     //$('#consultation_patient_id').hide(6);
     $('#consultation_specialty_id').change(function(){
       var specialty = $(this).val();
-        
       $.ajax({
         url: this.href,
         type: 'get',
@@ -21,10 +20,6 @@
       <%= f.collection_select(:specialty_id, @specialties, :id, :name, {:prompt => 'Selecione'} ) %>
     </td>
   </tr>
-  <tr id="preview">
-    <td><%= f.label I18n.t :patient %>:</td>
-    <td>
-      <%#= f.collection_select(:patient_id, @patients, :id, :name, {:prompt => 'Selecione'} ) %>
-    </td>
+  <tr id="doctor">
   </tr>
 </table>
