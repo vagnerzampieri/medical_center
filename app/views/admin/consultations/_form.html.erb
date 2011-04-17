@@ -1,18 +1,3 @@
-<script>
-  $(document).ready(function(){
-    //$('#consultation_patient_id').hide(6);
-    $('#consultation_specialty_id').change(function(){
-      var specialty = $(this).val();
-      $.ajax({
-        url: this.href,
-        type: 'get',
-        data: {specialty_id: specialty},
-        dataType: 'script'
-      });
-
-    });
-  });
-</script>
 <table>
   <tr>
     <td><%= f.label I18n.t :specialty %>:</td>
@@ -21,5 +6,11 @@
     </td>
   </tr>
   <tr id="doctor">
+  </tr>
+  <tr id="patient">
+  </tr>
+  <tr id="health_plan">
+  </tr>
+  <tr id="date">
   </tr>
 </table>

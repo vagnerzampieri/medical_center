@@ -1,3 +1,18 @@
+<script>
+  $(document).ready(function(){
+    //$('#consultation_patient_id').hide(6);
+    $('#consultation_specialty_id').change(function(){
+      var specialty = $(this).val();
+      $.ajax({
+        url: this.href,
+        type: 'get',
+        data: {specialty_id: specialty},
+        dataType: 'script'
+      });
+
+    });
+  });
+</script>
         <%= render :partial => 'admin/shared/subnav_agendas'%>
         
         <article class="article">
