@@ -1,0 +1,14 @@
+$('#doctor').empty();
+$('#doctor').append("<td><%= I18n.t :doctors %>:</td><td><select id='consultation_doctor_id' name='consultation[:doctor_id]'><option></option>");
+<% @doctors.each do |doctor| %>
+  $('#consultation_doctor_id').append("<option value='<%= doctor.servant.id %>'><%= doctor.servant.name %></option>");
+<% end %>
+$('#preview').append("</select></td>");
+
+$('#patient').empty();
+$('#patient').append("<td><%= I18n.t :patients %>:</td><td><select id='consultation_patient_id' name='consultation[:patient_id]'><option></option>");
+<% @patients.each do |patient| %>
+  $('#consultation_patient_id').append("<option value='<%= patient.id %>'><%= patient.name %></option>");
+<% end %>
+$('#preview').append("</select></td>");
+

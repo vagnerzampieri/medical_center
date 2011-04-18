@@ -18,10 +18,12 @@ class Admin::ConsultationsController < ApplicationController
       @doctors = []
       specialty.doctor_specialties.each do |doctor|
         @doctors << doctor
-      end    
+      end
+      
+      @patients = select_patient    
     end
     #@doctors = Doctor.order 'name ASC'
-    @patients = select_patient
+    
     #@health_plans = @patients.health_plan.name
   end
   
