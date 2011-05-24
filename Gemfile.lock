@@ -61,6 +61,7 @@ GEM
       rack (>= 1.0.0)
     rack-test (0.5.7)
       rack (>= 1.0)
+    railroady (1.0.2)
     rails (3.0.3)
       actionmailer (= 3.0.3)
       actionpack (= 3.0.3)
@@ -117,6 +118,7 @@ DEPENDENCIES
   mysql2
   nifty-generators
   pdfkit
+  railroady
   rails (= 3.0.3)
   rails3-jquery-autocomplete
   rspec
